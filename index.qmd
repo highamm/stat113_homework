@@ -1,0 +1,268 @@
+---
+title: "Syllabus"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    embed-resources: true
+urlcolor: blue
+---
+
+## General Information and Materials
+
+* Professor: Matt Higham
+* Office: Bewkes 123
+* Email: mhigham@stlawu.edu
+* Office Hours: 15 minute slots bookable at <a href="https://calendly.com/mhigham/prof-higham-office-hours" target="_blank">https://calendly.com/mhigham/prof-higham-office-hours</a>. The link to book is also on our Canvas home page.
+    + Note that you must book a time for office hours at least 12 hours in advance to guarantee that I am present and available at that time.
+* TA: Brody Pinto (bjpint21@stlawu.edu)
+    + major: Data Science
+
+<br>
+
+* Course Materials
+  * Course Notes
+    + Print out and bring to class.
+    + Folder or 3-ring binder to keep notes in.
+  * Calculator
+    + Scientific or Graphing (but something other than a phone and something that does not have Internet access). If you only plan on using a calculator for exams, the PQRC (next to our classroom) does loan calculators for a few hours at a time.
+    
+***
+***
+
+## Course Information
+
+Welcome to STAT 113! The overall goal of this course is to develop a quantitative and logical reasoning skill set to analyze certain problems. In this course, we will get to work with data from many different disciplines to showcase some of the introductory statistical techniques that we will learn. Get excited for our upcoming semester of statistics!
+
+### General Course Outcomes
+
+1. Describe the data collection process and ways to organize data in a sensible way.
+
+2. Interpret categorical and quantitative data from both graphical and numerical summaries.
+
+3. Analyze collected data using appropriate confidence intervals and hypothesis tests.
+
+4. Communicate results of analyses to both statistically literate and statistically novice audiences.
+
+5. Relate aspects of the field of statistics to your daily life or your own field of study.
+
+### Use of `R` and `RStudio`
+
+We will briefly use the statistical software `R` to construct graphs and analyze data. 
+
+* `R` and `RStudio` are both free to use.
+* We will be working on the SLU `R Studio` server: <http://rstudio.stlawu.local:8787>. There is no need to log on yet, as we will get started together as a class a few weeks into the semester.
+* The purpose of this class is not to learn `R` in detail. The concepts for the course receive a strong priority. 
+
+***
+***
+
+## Assessment
+
+There are 1000 total points that can be earned in this course from in class quizzes and homework. An up-to-date list of all relevant due dates will be found on Canvas.
+
+In-class quizzes are evaluated for both __correctness__ while Homeworks are usually evaluated for __completeness__ only (meaning that, for Homeworks, you receive full credit as long as a reasonable attempt is made for each part of each problem).
+
+<br>
+
+### In-Class Quizzes 
+
+<!-- You are allowed to bring a calculator and a single-sided hand-written page of notes (standard 8.5 by 11 inches) for each of the midterms. -->
+
+Most weeks, we will have a thirty minute in-class quiz on Wednesday, taken at the beginning of class. What each quiz covers will be given on the Canvas to-do list page, but most will cover material from that week's homework assignment and what we have been working on in class the previous few days in our note packet and handouts.
+
+Other policies on these in-class quizzes include:
+
+- you may use a single-sided page of handwritten notes/examples/formulas on each quiz. What you put on this is entirely up to you, but everything on the sheet must be handwritten and must be in your handwriting.
+- if you need to miss a Wednesday class for emergency/sickness/travel/athletics/etc., you may:
+    - reschedule __one__ quiz for later in the week if you let me know in advance.
+    - drop __one__ quiz entirely from your grade (in addition to the one reschedule).
+    - you must use both your one reschedule and your one drop before rescheduling any other quizzes.
+    
+There will be 11 total quizzes, each worth 80 points, for a total of 800 points (since one of the quizzes is dropped).
+
+<!-- There will be three midterm exams and one final exam. For all exams, you are allowed a double-sided page (standard 8.5 by 11 inches) of handwritten notes. More information about the midterm exams will be given closer to the date of the first exam. -->
+
+<!-- current thinking: final is 150 points (cumulative but give specific handouts). optional: if choosing not to take it, the average of your top 10 assessments goes in for the final. -->
+
+<!-- The final exam will be split into two parts: -->
+
+<!-- 1. The first part will be a mini 25-point take-home non-cumulative exam covering things we discussed since the third midterm. Everyone must turn in this portion of the exam. -->
+
+<!-- 1. The second part will be a 75-point cumulative in-person final that covers material from __1__ of the previous midterms of your choosing. For this portion of the final, you have two choices: -->
+
+<!-- * you may choose to opt out of this portion of the final and take the average of your three midterm percentages as your percentage for this part of the final (e.g. You score a 120 / 150 = 80% on midterm 1, a 90 / 150 = 60% on midterm 2, and a 120 / 150 = 80% on midterm 3 so you earn ((0.8 + 0.8 + 0.6) / 3 * 75 = 55 points out of 75 for this part of the final). -->
+
+<!-- * you may choose to take this portion of the final in-person. The percentage you earn will __replace__ the midterm grade of the midterm that you chose to take the final on, if the percentage is higher on the final. (e.g. You score a 120 / 150 = 80% on midterm 1, a 90 / 150 = 60% on midterm 2, and a 120 / 150 = 80% on midterm 3, and you decide you'd like to improve upon your midterm 2 grade. You take the final exam on this material and score a 72 / 75 = 96%, which means that your midterm 2 grade changes from a 90 / 150 to a 0.96 * 150 = 144 / 150). __Important Note__: Choosing this option requires you to be available during our scheduled final exam time in finals week. -->
+
+<br>
+
+### Homework Assignments
+
+Weekly homeworks are worth 10 points each and are due nearly every week on __Mondays__ and __Wednesdays__. The structure of the homework is:
+
+* by 11:59 pm on __Monday__ , you should submit to Canvas your completed homework assignment (you can either submit pictures or you can scan a PDF using one of the campus scanners). You need to have attempted every part of every problem in this submission.
+* by __Wednesday__'s class time, you should submit a hard copy of your corrected homework. When you submit your homework to Canvas, a file of solutions will be made available to you. Use this file to correct any mistakes on your homework and submit the corrected version, as a hard copy, at the beginning of Wednesday's class.
+
+You may work with other students on the homeworks, but please make sure to read the [Rules for Collaboration](#rules-for-collaboration) section before doing so. If you need additional help outside of collaboration with classmate or office hours, the Peterson Quantitative Research Center (PQRC) in Valentine Hall is a great resource! 
+
+Your lowest homework score will be dropped. 
+
+<br>
+
+<!-- ### Participation -->
+
+<!-- We will use groups of four to complete handouts in-class throughout the semester. The groups will only be used for in-class work. We will reassign groups about three times during the semester. Your grade for participation will be based on an evaluation through a rubric that we will complete __three__ times throughout the semester. The rubric will be given to you on the first day of class so you know right away how you will be assessed for this portion of your grade.  -->
+
+<!-- While the expectation is that you will attend most to all of the classes, life does happen and you may need to miss class sometimes! I will keep a packet of our notes and handouts in a folder outside of my office, Bewkes 123, that you can copy from or take pictures from. __However__, these notes should __never__ be removed from the table!! -->
+
+<!-- <br> -->
+
+### Final
+
+More information about the final will be provided later on. But, in short, it will consist of two parts:
+
+1. A take-home analysis for 20 points to be completed by __everyone__ in the class.
+
+2. An __optional__ in-class component during final's week worth 75 points. This is optional, but, if you choose to take this part of the final, it would both (1) count toward the 80 points for this part of the final and (2) replace your second lowest quiz score (your lowest quiz score is already dropped). If you choose not to take this part of the final, then the score for the 80 points here would be the average score of your highest 10 quizzes.
+
+__Example__. Suppose your 11 quiz scores are `55, 61, 65, 65, 65, 67, 70, 72, 75, 80, 80`. The score of `55` gets dropped no matter what. If you choose __not__ to take the optional final, then you will score a 70 / 80 on the final (the average of your top 10 quiz scores). If you choose to take the final and score a 75 / 80, then you will get a 75 / 80 on the final __and__ the `61` will get replaced by a `75`.
+
+
+### Point Allocation
+
+The 1000 points possible for the class will be allocated in the following way:
+
+* Quizzes: 80 points for each of 11 quizzes for a total of 800 points (with one of the quizzes dropped).
+* Homework Assignments: 11 Homeworks for 10 points each for a total of 100 points (with one of the homeworks dropped).
+<!-- * Participation: 3 participation rubric evaluations for 15 points each for a total of 45 points.  -->
+* Final Take-Home: 20 points.
+* Final In-Class: 80 points (optional: if choosing not to take this, the 80 points here will be the average of your highest 10 quizzes).
+
+<br>
+
+### Grading Scale
+
+| Grade | 4.0 | 3.75 | 3.5 | 3.25 | 3.0 | 2.75 | 2.5 | 2.25 | 2.0 | 1.75 | 1.5 | 1.25 | 1.0 | 0.0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Points | 950-1000 | 920-949 | 890-919 | 860-889 | 830-859 | 800-829 | 770-799 | 750-769 | 720-749 | 700-719 | 670-699 | 640-669 | 600-639 | 0-599 |
+
+***
+***
+
+## Collaboration, Diversity, Accessibility, and Academic Integrity
+
+### Rules for Collaboration
+
+You __are__ allowed to collaborate with your classmates (or your classmates from the other section of this course) for homework assignments and handouts with the following rules.
+
+* you must state the name(s) of who you collaborated with at the top of each assessment.
+* all work must be your own. Even if you work with someone else, you must write or type your answers on your own. Therefore, I expect your answers to free response questions to be at least slightly different from the the person(s) you collaborated with.
+* you must not copy answers directly from the Internet or directly from the homework solutions file.
+* this isn't a rule, but keep in mind that collaboration is not permitted on any of the exams. Therefore, when working with someone, make sure that you are both really learning so that you both can have success on the in-class quizzes.
+
+***
+***
+
+### Diversity Statement
+
+Diversity encompasses differences in age, colour, ethnicity, national origin, gender, physical or mental ability, religion, socioeconomic background, veteran status, sexual orientation, and marginalized groups. The interaction of different human characteristics brings about a positive learning environment. Diversity is both respected and valued in this classroom.
+
+***
+***
+ 
+### Accessibility Statement
+
+The message below is copied from the Student Accessibility Services Office:
+
+Your experience in this class is important to me.  It is the policy and practice of St. Lawrence University to create inclusive and accessible learning environments consistent with federal and state law.  If you have established accommodations with the Student Accessibility Services Office in the past, please activate your accommodations so we can discuss how they will be implemented in this course.
+
+If you have not yet established services through the Student Accessibility Services Office but have a temporary health condition or permanent disability that requires accommodations (conditions include but not limited to; mental health, attention-related, learning, vision, hearing, physical or health impacts), please contact the Student Accessibility Services Office directly to set up a meeting.  The Student Accessibility Services Office will work with you on the interactive process that establishes reasonable accommodations.
+
+__Color Vision Deficiency__: The Student Accessibility Services office can loan glasses for students who are color vision deficient. Please contact the office to make an appointment.
+ 
+For more specific information about setting up an appointment with Student Accessibility Services please see the options listed below:
+
+Telephone: 315.229.5537
+ 
+Email: studentaccessibility@stlawu.edu 
+ 
+Website: <https://www.stlawu.edu/offices/student-accessibility-services>
+
+***
+***
+
+### Academic Integrity
+
+Academic dishonesty will not be tolerated. Any specific policies for this course are supplementary to the
+
+Honor Code. According to the St. Lawrence University Academic Honor Policy,
+
+1. It is assumed that all work is done by the student unless the instructor/mentor/employer gives specific permission for collaboration.
+2. Cheating on examinations and tests consists of knowingly giving or using or attempting to use unauthorized assistance during examinations or tests.
+3. Dishonesty in work outside of examinations and tests consists of handing in or presenting as original work which is not original, where originality is required.
+
+*Claims of ignorance and academic or personal pressure are unacceptable as excuses for academic dishonesty.* Students must learn what constitutes one&#39;s own work and how the work of others must be acknowledged.
+
+For more information, refer to [www.stlawu.edu/acadaffairs/](../../C:%5CUsers%5Ciramler%5CAppData%5CLocal%5CTemp%5Cwww.stlawu.edu%5Cacadaffairs%5Cacademic_honor_policy.pdf)[**academic**](../../C:%5CUsers%5Ciramler%5CAppData%5CLocal%5CTemp%5Cwww.stlawu.edu%5Cacadaffairs%5Cacademic_honor_policy.pdf)[\_](../../C:%5CUsers%5Ciramler%5CAppData%5CLocal%5CTemp%5Cwww.stlawu.edu%5Cacadaffairs%5Cacademic_honor_policy.pdf)[**honor**](../../C:%5CUsers%5Ciramler%5CAppData%5CLocal%5CTemp%5Cwww.stlawu.edu%5Cacadaffairs%5Cacademic_honor_policy.pdf)[\_policy.pdf](../../C:%5CUsers%5Ciramler%5CAppData%5CLocal%5CTemp%5Cwww.stlawu.edu%5Cacadaffairs%5Cacademic_honor_policy.pdf).
+
+To avoid academic dishonesty, it is important that you follow all directions and collaboration rules and ask for clarification if you have any questions about what is acceptable for a particular assignment or exam.  If I suspect academic dishonesty, a score of zero will be given for the entire assignment in which the academic dishonesty occurred **for all individuals involved** and Academic Honor Council will be notified. If a pattern of academic dishonesty is found to have occurred, a grade of 0.0 for the entire course can be given.
+
+It is important to work in a way that maximizes your learning. Be aware that students who rely too much on others for the homework and projects tend to do poorly on the quizzes and exams.
+
+_Please note that in addition the above, any assignments in which your score is reduced due to academic dishonesty will not be dropped according to the homework policy e.g., if you receive a zero on a homework because of academic dishonesty, it will not be dropped from your grade._
+
+***
+***
+
+### PQRC
+
+The Peterson Quantitative Resource Center (PQRC) offers free, no appointment necessary peer tutoring across a range of courses with quantitative content. The PQRC student staff of mentors is trained to assist students to develop and to improve their quantitative skills and understanding. More information about the PQRC’s current hours and modes of operation can be found at the PQRC webpage: <https://www.stlawu.edu/offices/pqrc>
+
+***
+***
+
+## Tentative Schedule
+
+The following gives a tentative schedule and tentative weeks for exams. Note that these may change.
+
+| Week | Date | Topics | 
+| ---- | ------ | ------------------------------- |
+| 0 | 8/27 | Intro to Data, Data Exploration |
+| 1 | 9/1 |  Data Exploration | 
+| 2 | 9/8 | Data Exploration | 
+| 3 | 9/15 | Introduction to Modeling, Regression  | 
+| 4 | 9/22 | Regression, Multiple Regression  | 
+| 5 | 9/29 | Normal Distribution, Data Collection | 
+| 6 | 10/6 |  Sampling Variability | 
+| 7 | 10/13\* | Sampling Distributions, Confidence Intervals | 
+| 8 | 10/20 | Introduction to Hypothesis Testing | 
+| 9 | 10/27 | Introduction to Hypothesis Testing | 
+| 10 | 11/3 | Chi-squared Tests |
+| 11 | 11/10 |  Hypothesis Testing with Quantitative Data | 
+| 12 | 11/17 | Hypothesis Testing with Quantitative Data  | 
+| 13 | 12/1 | Hypothesis Testing with Quantitative Data | 
+| 14 | 12/8\* | Topic Catch-Up|
+
+<!-- ## Tentative Calendar of Due Dates -->
+
+<!-- The Exam Dates are tentatively scheduled for: -->
+
+<!-- * Exam 1: Wednesday, February 19 or Wednesday, February 26 -->
+<!-- * Exam 2: Wednesday, March 26 or Wednesday, April 2 -->
+<!-- * Exam 3: Wednesday, April 23 -->
+
+<!-- * Exam 1: Thursday, September 28 at 7:00 pm -->
+<!-- * Exam 2: Thursday, October 26 at 7:00 pm -->
+<!-- * Exam 3: Thursday, November 30 at 7:00 pm -->
+
+<!-- The exams are written to only take an hour, but you will have 90 minutes to complete the exam. -->
+
+<!-- Because of the night exams, we will not have class on Friday, September 29, October 27 and December 1. -->
+
+Please see the Final Exam section of the syllabus for the structure of the optional in-person final exam. The Final Exam date and time are set by the registrar later in the semester.
+
+
+
+
+

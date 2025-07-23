@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "STAT 113 Homework"
+  author: "Matt Higham"
+  chapters:
+    - index.qmd
+    - 01-homework.qmd
+    - 02-homework.qmd
+    - 03-homework.qmd
+    - 04-homework.qmd
+    - 05-homework.qmd
+    - 06-homework.qmd
+    - 07-homework.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - stat113.scss
+    callout-appearance: simple
+    number-sections: false
+
+
+
+

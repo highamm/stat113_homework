@@ -1,0 +1,300 @@
+---
+title: "Section 3 Homework"
+format: 
+  html:
+    self-contained: true
+execute:
+  echo: false
+  warning: false
+  fig-height: 3
+---
+
+__Reminder__: You __are__ allowed to work with other students on the homework assignments but you must acknowledge who you worked with at the top of your homework assignment.
+
+At the top of you assignment, __List Any Collaborators__ (if any):
+
+__Statement of Integrity__: All work submitted is my own, and I have followed all rules for collaboration. If I used any AI on this assignment, I have clearly stated both (1) what my search prompt(s) was/were and (2) what I used from the AI answer(s).
+
+__Signature__: 
+
+On the top of your assignment, copy the entire statement of integrity or just write the phrase "Statement of Integrity" and sign your name to it. 
+
+All homeworks should be handwritten (unless otherwise noted).
+
+<br>
+
+__Exercise 1__. For this exercise, we will use the data from the survey at the beginning of the semester. In particular, we will model GPA at SLU with no predictors. Below are a histogram and a table of summary statistics for GPA from the survey.
+
+```{r}
+library(tidyverse)
+library(here)
+survey_df <- read_csv(here("data_private/stat113_survey.csv"))
+ggplot(data = survey_df, aes(x = GPA)) +
+  geom_histogram(bins = 19, colour = "darkorchid4", fill = "darkorchid1") +
+  theme_minimal()
+```
+
+```{r}
+summary_tab <- survey_df |>
+  summarise(mean = mean(GPA, na.rm = TRUE),
+            n = sum(!is.na(GPA)))
+
+names(summary_tab) <- c("$\\hat{\\mu}$", "n")
+pander::pander(summary_tab)
+```
+
+a. Write the fitted model for GPA with no predictors.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- answer should look like: $\hat{Y} = 3.39$ where $\hat{Y}$ is predicted GPA.
+:::
+
+b. Predict the GPA of a male student who plays a varsity sport on campus, owns a Mac, is a Sophomore, and has 3 siblings.
+
+c. Predict the GPA of a male student who does not play a varsity sport on campus, owns a PC, is a Sophomore, and has 1 sibling.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- hint: your answer for part b and part c should be equal
+:::
+
+d. Suppose that the student in (b) has a GPA of 2.5 (making this value up to have complete anonymity in the survey). Find the residual for this student.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- answer should be close to `r 2.5 - 3.39` points
+- recall the formula for calculating a residual is: $residual = actual - predicted$
+:::
+
+e. Suppose that the student in (c) has a GPA of 3.75 (making this value up to have complete anonymity in the survey). Find the residual for this student.
+
+f. Suppose that our population of interest for this exercise is all SLU students. Construct an argument for why the sample of students in our survey might __not__ be representative of our population of interest for GPA.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- answer should be include something about if GPA being systematically different for juniors and seniors (since the majority of stat113 survey data comes from freshmen and sophomores), our sample is not representative of all SLU students
+:::
+
+<br>
+
+__Exercise 2__. A data set from the OpenIntro textbook contains observations on 150 births at a hospital in North Carolina. Variables measured for each birth include
+
+* `weight` of the baby, in pounds,
+* `m_age`, the mother's age, in years
+* `smoke`, whether or not the mother was a smoker (`0` for nonsmoker, `1` for smoker)
+
+For this exercise, we will fit a regression model using `weight` of the baby as the response and `m_age`, the mother's age, as a predictor. Below is a scatterplot of `m_age` and `weight` with a fitted regression line, a table of output from the model, and the raw data from the first two mothers in the data set.
+
+```{r}
+library(openintro)
+library(tidyverse)
+births_df <- openintro::births
+ggplot(data = births_df, aes(x = m_age, y = weight)) +
+  geom_jitter() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal()
+```
+
+```{r}
+lm(weight ~ m_age, data = births_df) |> pander::pander()
+```
+
+```{r}
+births_df |> slice(1:2) |>
+  select(weight, m_age, smoke) |> pander::pander()
+```
+
+a. From the model output, write the equation of the fitted regression line for a model with weight of the baby as the response and mother's age as the predictor.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- hint: $\hat{Y}$ is predicted weight, and $X$ is mother's age
+:::
+
+b. From the scatterplot, describe the relationship between weight and mother's age.
+
+c. For the first mother in the data set, find the predicted weight of their baby, according to the model. Include units in your answer.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- answer should be close to: 7.08 pounds.
+:::
+
+d. For the first mother in the data set, calculate the residual weight. Include units in your answer.
+
+e. Is the model over or under-predicting the weight for the first mother? 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part e)
+
+- reminder: a negative residual means the model is **over**-predicting the observation, a positive residual means the model is **under**-predicting the observation
+:::
+
+f. For the second mother in the data set, find the predicted weight of their baby, according to the model. Include units in your answer.
+
+g. For the second mother in the data set, calculate the residual weight. Include units in your answer.
+
+<br>
+
+__Exercise 3__. Suppose that we are interested in the relationship between driving distance and driving accuracy for all male professional golfers. We obtain data on 193 professional golfers from the 2018 season and record their driving distance (measured in yards) as well as their driving accuracy (measured in percent of fairways hit). The first three observations of the data set are given below as well as a scatterplot and output from a regression model with driving distance as the response and percent fairways hit (a metric for driving accuracy) as the predictor.
+
+```{r}
+library(tidyverse); library(here)
+golf_df <- read_csv(here("data/pga_data_final.csv"))
+golf2018 <- golf_df |> filter(year == 2018) |>
+  arrange(ranking)
+pander::pander(golf2018 |>
+  slice(1:3) |> select(-c(1, 2, 5, 6, 8, 9, 12, 13, 14, 
+                          15, 16, 17, 18, 19, 20, 21, 22)))
+```
+
+```{r}
+ggplot(data = golf2018, aes(x = driving_accuracy, y = driving_distance)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  labs(y = "driving distance (yards)", x = "percent fairways hit")
+```
+
+```{r}
+lm(driving_distance ~ driving_accuracy, data = golf2018) |>
+  pander::pander()
+```
+
+a. From the model output, write the equation of the fitted regression line for a model with distance as the response and percent of fairways hit as the predictor.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- hint: $\hat{Y}$ is predicted distance in yards, $X$ is the percent fairways hit, and the slope is -0.66
+:::
+
+b. Using the model, predict the driving distance for the first golfer in the data set. Include units in your answer.
+
+c. Calculate the residual for the first golfer in the data set. Include units in your answer.
+
+<br>
+
+__Exercise 4__. Using the birth weight model from the earlier exercise (birth weight of the baby as the response (in pounds) and mother's age (in years) as the predictor, complete the following.
+
+a. Interpret the estimated slope in context of the problem.
+
+b. Interpret the estimated intercept in context of the problem.
+
+c. Should we interpret the intercept here? Why or why not?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- hint: your answer should include the word *extrapolation*
+:::
+
+d. The $R^2$ value for this example is 0.00179. Interpret this $R^2$ in context of the problem.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- answer should be along the lines of: the percentage of variability in baby weight that can be explained by a model with age of the mother is 0.179%.
+:::
+
+<br>
+
+__Exercise 5__. Using the golf model from the earlier exercise (driving distance as the response (in yards) and percent fairways hit as the predictor), complete the following.
+
+a. Interpret the estimated slope in context of the problem.
+
+b. Interpret the estimated intercept in context of the problem.
+
+c. Should we interpret the intercept here? Why or why not?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- hint: your interpretation should be roughly the same as part c of **Exercise 4**
+:::
+
+d. The $R^2$ value for this example is 0.1559. Interpret this $R^2$ in context of the problem.
+
+<br>
+
+__Exercise 6__. In this exercise, we will use the birth data from North Carolina to model the response variable baby `weight` (in pounds) with a categorical predictor `smoke` (`0` if the mother is not a smoker, `1` if the mother is a smoker). Recall that data were collected from 150 births at the North Carolina Hospital. Below is a side-by-side boxplot of the data, the fitted regression model, and a table of data for the first two mothers in the data set.
+
+```{r}
+ggplot(data = births_df, aes(x = smoke, y = weight)) +
+  geom_boxplot(outlier.shape = 8, colour = "aquamarine4", fill = "aquamarine1") +
+  theme_minimal()
+```
+
+```{r}
+lm(weight ~ smoke, data = births_df) |> pander::pander()
+```
+
+<br>
+
+```{r}
+births_df |> slice(1:2) |>
+  select(weight, m_age, smoke) |> pander::pander()
+```
+
+a. Write down the fitted regression equation using the output above. Define the indicator variable in your model.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- hint: $\hat{Y}$ is predicted weight, and $smoke_{ind}$ is equal to a $0$ if the mother was not a smoker and a $1$ if the mother was a smoker.
+:::
+
+b. Predict the baby weight for a mother who does not smoke.
+
+c. Predict the baby weight for a mother who does smoke.
+
+d. Find the residual for the first mother in the data set. Include units in your answer.
+
+e. Interpret the intercept in context of the problem.
+
+f. Interpret the slope in context of the problem.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- your answer should be along the lines of: we expect the average baby weight for mothers who do smoke to be 0.4005 pounds less than the average baby weight for mothers who do not smoke.
+:::
+
+
+<br>
+
+__Exercise 7__. Recall the stroop effect experiment that we performed in class a couple of weeks ago. In this experiment, we separated into two groups: a control group that completed a test with words whose colours matched the word description and a stroop group that completed a test with words whose colours did not match the word description. The response variable we recorded was the time it took to complete the test.
+
+Below is a side-by-side boxplot of the data we collected, along with output from a fitted regression model with the indicator variable defined with `control = 0` and `stroop = 1`.
+
+```{r}
+stroop_df <- read_csv("https://raw.githubusercontent.com/highamm/stat113/main/data_server/stroop.csv")
+ggplot(data = stroop_df, aes(x = test, y = time)) +
+  geom_boxplot(outlier.shape = 8, colour = "darkseagreen4", fill = "darkseagreen1") +
+  theme_minimal()
+```
+
+```{r}
+lm(time ~ test, data = stroop_df) |> pander::pander()
+```
+
+a. Write down the fitted regression equation using the output above. Define the indicator variable in your model.
+
+b. Predict the time to complete the test for someone in the control test group.
+
+c. Predict the time to complete the test for someone in the stroop test group.
+
+d. Interpret the intercept in context of the problem.
+
+e. Interpret the slope in context of the problem.
+
+<br>
+
+

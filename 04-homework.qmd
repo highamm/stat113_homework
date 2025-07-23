@@ -1,0 +1,414 @@
+---
+title: "Section 4 Homework"
+format: 
+  html:
+    self-contained: true
+execute:
+  echo: false
+  warning: false
+  fig-height: 3
+---
+
+__Reminder__: You __are__ allowed to work with other students on the homework assignments but you must acknowledge who you worked with at the top of your homework assignment.
+
+At the top of you assignment, __List Any Collaborators__ (if any):
+
+__Statement of Integrity__: All work submitted is my own, and I have followed all rules for collaboration.
+
+__Signature__: 
+
+On the top of your assignment, copy the entire statement of integrity or just write the phrase "Statement of Integrity" and sign your name to it. 
+
+All homeworks should be handwritten (unless otherwise noted).
+
+__Exercise 1__. Choose __one__ of the following four videos to watch. I've selected these videos because they do not have a lot of code or technical detail. However, there may be specific things that you don't understand in each video, which is totally fine: you'll still be able to understand the general ideas and purpose!
+
+* Effective Visualizations: <https://resources.rstudio.com/rstudio-conf-2020/effective-visualizations-miriah-meyer>
+
+* Sports Analytics:
+<https://resources.rstudio.com/rstudio-conf-2020/r-tidyverse-in-sports-namita-nandakumar>
+
+* Humanitarian Data Science: <https://www.rstudio.com/resources/rstudioglobal-2021/humanitarian-data-science-with-r/>
+
+* ACLU Data Visualization: <https://www.rstudio.com/resources/rstudioglobal-2021/trial-and-error-in-data-viz-at-the-aclu/>
+
+After you watch the video, write down 3 key messages from the video, each key message being 1 - 2 sentences.
+
+<br>
+
+__Exercise 2__. Standardized testing is still commonly used at many universities as data for part of the university admission's decision. To investigate the association between test scores and first year GPA, data were collected on __1000__ second-year students at an unnamed institution. The data used was obtained from the OpenIntro textbook. Included among the variable collected are
+
+* `fy_gpa`, the student's first year GPA
+* `sat_v`, the student's SAT Verbal score
+* `sat_m`, the student's SAT Math score
+* `sat_sum`, the student's SAT Verbal score plus their SAT Math score
+* `hs_gpa`, the student's high school GPA
+* `sex`, the sex of the student (either `female = 0` or `male = 1` in this data set).
+
+We are interested in building a predictive model for `fy_gpa`, a student's first year GPA at the university. We randomly split the 1000 students into a training sample of __800__ students and a test sample of __200__ students.
+
+The first model we consider is a model with `sat_v`, `sex`, and `hs_gpa` as predictors for the training data set of 800 students:
+
+```{r}
+library(tidyverse)
+set.seed(4151412)
+satgpa <- openintro::satgpa |> mutate(sex = if_else(sex == 1,
+                                         true = "male", false = "female"))
+sat_train <- satgpa |> slice_sample(n = 800)
+sat_test <- anti_join(satgpa, sat_train)
+
+mod_small <- lm(fy_gpa ~ sat_v + hs_gpa + sex, data = sat_train)
+pander::pander(mod_small)
+```
+
+a. Write the fitted regression equation with the three predictors. 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- your answer should look like: $\hat{Y} = -0.3927 + 0.0199 sat_v + 0.6021 hs_{gpa} + -0.0785 sex_{ind}$
+:::
+
+The following table gives the first three students in the test data set. 
+
+```{r}
+satgpa |> slice(1:3) |> pander::pander()
+```
+
+b. Use the model that was fit with the training set to predict the first-year GPA of the first student in the test data set. Then, calculate a prediction error that is the observed first-year gpa for the first student minus what the model predicts the their first-year gpa is.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- your answer should be: 0.312 points.
+:::
+
+c. Use the model that was fit with the training set to predict the first-year GPA of the second student in the test data set. Then, calculate a prediction error that is the observed first-year gpa for the second student minus what the model predicts the their first-year gpa is.
+
+d. Use the model that was fit with the training set to predict the first-year GPA of the third student in the test data set. Then, calculate a prediction error that is the observed first-year gpa for the third student minus what the model predicts the their first-year gpa is.
+
+e. Suppose that, instead of 200 students, your test data set only consisted of these 3 students. Calculate the mean absolute error for this tiny test sample of 3 students.
+
+```{r}
+resids <- sat_test$fy_gpa - predict(mod_small, sat_test)
+mae_small <- round(mean(abs(resids)), 4)
+```
+
+f. For the test sample with all 200 students, the mean absolute error is actually `r mae_small` points. Interpret this value in context of the problem.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- your answer should be along the lines of: he average error in predicting first year GPA for a model with SAT verbal, High school GPA, and sex as predictors is `r mae_small` points.
+:::
+
+```{r}
+mod_large <- lm(fy_gpa ~ sat_v + sat_m + hs_gpa + sex, data = sat_train) 
+resids <- sat_test$fy_gpa - predict(mod_large, sat_test)
+mae_large <- round(mean(abs(resids)), 4)
+```
+
+g. Now suppose we fit another model (output omitted) with `sat_v`, `hs_gpa`, `sex`, and `sat_m` as predictors. The mean absolute error for this model on the test data set is `r mae_large` points. Which model is the better model, according to the mean absolute error criterion? Give a one phrase reason.
+
+h. Based on the results, make an argument for why you think the Math SAT should or should not be a part of the admissions applications for universities. You can use reasoning outside of this example, but you should incorporate at least something from this analysis.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part h)
+
+- hint: you should compare the model's mean absolute error with and without the Math SAT.
+:::
+
+<br>
+
+```{r}
+set.seed(415131)
+mu1 <- sample(c(220, 230, 240), size = 1)
+mu2 <- sample(c(250, 260, 270), size = 1)
+sigma1 <- sample(c(15, 20, 25), size = 1)
+sigma2 <- sample(c(30, 40), size = 1)
+```
+
+__Exercise 3__. Suppose that marathon running times for two different marathon races are normally distributed. The first race, Race A, is run on a road and has a mean time of `r mu1` minutes with a standard deviation of `r sigma1` minutes. The second race, Race B, is run on a hilly trail and has a mean time of `r mu2` minutes and a standard deviation of `r sigma2` minutes. You run both marathons, finishing the first race (Race A) in `225` minutes and the second race, Race B, in `240` minutes.
+
+a. Draw the distribution of times for Race A using the 68-95-99 rule. Mark where yjuu8iour time falls on the distribution. 
+
+b. Calculate the Z-score for your Race A time.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- your answer should be: $Z = -0.25$
+:::
+
+c. Interpret your Z-score for Race A in context of the problem.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- your answer should be: Our time to finish the race is 0.25 standard deviations _below_ the mean race time.
+:::
+
+d. Using StatKey, find the proportion of runners that ran the race faster (in less time) than your race time.
+
+e. Draw the distribution of times for Race B using the 68-95-99 rule. Mark where your time falls on the distribution. 
+
+f. Calculate the Z-score for your Race B time. 
+
+g. In which race was your time "more unusual"? Give a one phrase reason.
+
+<br>
+
+__Exercise 4__. Suppose that the scores on an online IQ test are normally distributed with $\mu = 150$ and $\sigma = 25$. You have two friends take the IQ test. One friend (Friend A) scores a 175 and the other friend (Friend B) scores a 110. 
+
+a. Calculate the z-scores for both of your friends.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- Friend A: 1
+- Friend B: -1.6
+:::
+
+b. Interpret the z-score for Friend B in context of the problem.
+
+c. Which friend had the more "unusual" score on the intelligence test? Give a one sentence explanation.
+
+d. Using StatKey, find the proportion of people that score higher than Friend A on the test.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- your answer should be: 0.1587
+:::
+
+e. Using StatKey, find the proportion of people that score lower than Friend B on the test.
+
+f. A third friend takes a different online IQ test. This test has a different mean and a different standard deviation than the first two tests. Explain why using z-scores would be useful to compare the results of the test from your third friend with the results of your other two friends.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- hint: what if the third friend's IQ was measured on a completely different scale?
+:::
+
+<br>
+
+__Exercise 5__. Suppose that you want to collect some data on what faculty attitudes are about diversity here at SLU. You have a set of questions you plan to ask faculty members. Note that, if conducting this survey with plans to publicize results, you would need IRB approval to interview human subjects. But, ignoring the need for approval, describe how you would obtain the following:
+
+a. A simple random sample
+
+b. A convenience sample
+
+c. A volunteer sample
+
+d. A census
+
+<br>
+
+__Exercise 6__. Make an argument for why the volunteer sample you discussed in the previous exercise might __not__ be representative of faculty attitudes about diversity.
+
+<br>
+
+__Exercise 7__. Suppose that a gardener wants to determine if a new brand of fertilizer improves her tomato plant growth, compared to the old brand of fertilizer. The gardener has 50 pots with 50 tomato plants to use for her study. Design an experiment for the gardener.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing the exercise)
+
+- your experiment __must__ include _randomization_: that is, for this to be an experiment (not an observational study), the gardener must randomly select some pots to receive the old fertlizier and some pots to receive the new fertilizer.
+:::
+
+<br>
+
+__Exercise 8__. Suppose that, instead of the experiment, the gardener performs an observational study and just uses the new fertilizer for the northern half of her garden and uses the old fertilizer for the southern half. What might be a confounding variable in this study? Explain why the variable you chose might be confounding.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing the exercise)
+
+- answers will vary here, but you must argue that:
+    - whatever variable you selected is associated with whether or not the plant received the new or old fertilizer (the explanatory).
+    - whatever variable you selected is associated with growth (the response).
+- one logical confounding variable to choose would be the amount of sun received.
+:::
+
+<br>
+
+__Exercise 9__. We discussed a few ways to collect data in class. In reality, sampling methods are typically more complicated than what we have discussed. There are entire courses devoted to sampling methods, survey methods, and collecting data. Let's investigate some of these complexities using the job discrimination data that we introduced on the first day of class. 
+
+For this exercise, you will need to open the Job_Discrimination_Paper.pdf file on Canvas, which is the published paper on the job discrimination data. To answer the questions below, you will read particular sections of this paper: you do not need to read the entire paper for this question.
+
+__Read the Abstract and Introduction__.
+
+a. What do the authors mean when they say, at the top of page 3, "Since applicants’ names are randomly assigned, this gap can only be attributed to the name manipulation?"
+
+b. Aside from the main finding of racial discrimination, what is one other result the authors state that you found interesting or important?
+
+__Read Section 5.1.__
+
+c. We have stated many times that, in experiments, confounding variables are balanced out when randomization into groups occurs. However, in this experiment, there actually could still be a confounding variable because we aren’t actually randomizing people, we are only randomizing names. What is one possible confounding variable given in this section? Why is it confounding (recall our definition of confounding variable from earlier in the semester).
+
+<br>
+
+__Exercise 10__. Suppose that we are interested in the proportion of Maple trees in the St. Lawrence county that are taller than 40 feet. The local government painstakingly measures every single tree in a __census__, finding that the proportion of all maple trees in St. Lawrence County taller than 40 feet is 0.29.
+
+a. Even though you know the true proportion of trees in St. Lawrence County that are taller than 40 feet, you decide to take a sample of 20 trees in the county. Describe what __sampling uncertainty/variability__ means in the context of this example.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- hint: for different samples of 20 trees, the proportion that are taller than 40 feet will change from one sample of 20 trees to another sample of 20 trees, this is __sampling uncertainty/variability__.
+:::
+
+b. Describe what the __sampling distribution of the sample proportion__ is in context of this example.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- hint: the __sampling distribution of the sample proportion__ would result from repeatedly sampling 20 trees in St. Lawrence County millions of times.
+:::
+
+c. Use the sampling distribution app from Handout 4c (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution.
+
+d. Provide a calculation for the standard deviation of the sampling distribution and verify that your calculation is approximately the same as the standard deviation from the App.
+
+e. Will the sampling distribution of the sample proportion be approximately normally distributed? Provide a calculation as evidence for your answer.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part e)
+
+- hint: according to our success-failure condition, the sampling distribution will be normally distributed if both $n \cdot p$ and $n \cdot (1 - p)$ are larger than 10.
+:::
+
+f. Now suppose that your friend takes a sample of 50 trees in St. Lawrence county. Will the spread of your friend's sampling distribution of the sample proportion be greater than or less than the spread of your sampling distribution of the sample proportion with a sample size of 20 trees? Give a brief reason.
+
+g. When your friend takes their sample of 50 trees, they find a sample proportion of trees that are taller than 40 feet of 0.3. Calculate a 95% confidence interval for the proportion of trees taller than 40 feet using your friend's sample.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part g)
+
+- your 95% confidence interval should look like: (0.1742, 0.4258)
+:::
+
+h. Interpret your interval in context of the problem.
+
+i. Why does it not make sense to calculate and interpret a confidence interval for this example?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part i)
+
+- hint: your answer should include the word __census__.
+:::
+
+<br>
+
+__Exercise 11__. Suppose that you are interested in estimating the proportion of toddlers in the U.S. who are allergic to peanuts. You randomly select 150 toddlers and record whether each one has a peanut allergy. Assume that your sample is representative of all toddlers in the U.S.
+
+You find in your sample that 20 out of the 150 toddlers have a peanut allergy.
+
+a. Describe what __sampling uncertainty/variability__ means __in context of this problem__.
+
+b. What is the __shape__ of the sampling distribution of the sample proportion for this problem? You need to justify your response with an appropriate calculation or explanation.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- hint: your calculation should be about the success-failure condition.
+:::
+
+c. Calculate a 99% confidence interval for the proportion of all toddlers with a peanut allergy.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- your confidence interval should be: (0.0618, 0.2048)
+:::
+
+d. Interpret this interval using our standard confidence interval interpretation in context of the problem.
+
+e. Suppose that the true proportion of toddlers with a peanut allergy in the United States is 0.15. Using this information, explain what "95% confidence" means in context of this problem, using the idea of "repeated sampling" in your explanation.
+
+f. Mark each of the following statements as True or False. Give a short one phrase or one sentence explanation for each response.
+
+(1): The Margin of Error for a 90% confidence interval is larger than the Margin of Error for a 99% confidence interval.
+
+(2): About 99% of all 99% confidence intervals constructed will contain the proportion $\frac{20}{150}$.
+
+(3): About 99% of all 99% confidence intervals constructed will contain 0.15.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing parts (1), (2), and (3))
+
+- answers: (1) is FALSE, (2) is FALSE, (3) is TRUE
+:::
+
+<br>
+
+__Exercise 12__. A common topic in the U.S. is the aging of the "baby boomer" generation. Let's look at the sampling distribution for a sample size of about 130 of the proportion of people in the U.S. who are 65 or older. The true proportion of people 65 or older at the time of the 2010 U.S. census is __0.12__.
+
+Using the app that we used for Handout 4d (<https://stlawu.shinyapps.io/samp_dist_conf_int/>), drag the slider for the true proportion to 0.12 and the sample size to 130. Then, answer the following questions.
+
+a. Click the "Sampling Distribution" tab and write down the standard error, the standard deviation of the sampling distribution.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- your answer should be approximately 0.0283
+:::
+
+b. Calculate the standard error "by hand" using the formula and verify that it is approximately equal to the standard deviation in the app.
+
+c. Click on the "Confidence Intervals" tab and drag the "Add and Subtract" slider until about 95% of the intervals cover the true proportion, 0.12. Write down the number on the slider.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- your answer should be approximately 0.056.
+:::
+
+d. By hand, calculate the __Margin of Error__ for a 95% confidence for this example and verify that your calculation matches (approximately) the number on the slider in the app.
+
+<br>
+
+```{r}
+library(tidyverse)
+library(here)
+survey_df <- read_csv(here("data_private/stat113_survey.csv"))
+
+survey_hand <- survey_df |> filter(Hand == "Right" | Hand == "Left") 
+survey_sum <- survey_hand |>
+  summarise(totalright = sum(Hand == "Right"),
+                          total = n())
+```
+
+<br>
+
+__Exercise 13__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
+
+a. What is the population of interest?
+
+b. What is the parameter of interest and what is the notation for this parameter?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- $p$ the proportion of all SLU students who are right-handed.
+:::
+
+c. Is our sample _representative_ of the population of interest for the handedness characteristic? Why or why not?
+
+__Regardless of your answer to (c), continue with the steps for calculating a confidence interval__.
+
+d. What is the point estimate and what is the notation for this point estimate?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- hint: the notation for this point estimate is: $\hat{p}$
+:::
+
+e. Check the success-failure condition.
+
+f. Calculate a 99% confidence interval for the proportion of students who are right-handed at SLU.
+
+g. Interpret the 99% confidence interval with the standard interpretation for a confidence interval.
+
+<br>

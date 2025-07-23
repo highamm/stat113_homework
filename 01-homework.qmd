@@ -1,0 +1,74 @@
+---
+title: "Section 1 Homework"
+format: 
+  html:
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  fig-height: 3
+---
+
+__Reminder__: You __are__ allowed to work with other students on the homework assignments but you must acknowledge who you worked with at the top of your homework assignment.
+
+At the top of you assignment, __List Any Collaborators__ (if any):
+
+__Statement of Integrity__: All work submitted is my own, and I have followed all rules for collaboration. If I used any AI on this assignment, I have clearly stated both (1) what my search prompt(s) was/were and (2) what I used from the AI answer(s).
+
+__Signature__: 
+
+On the top of your assignment, copy the entire statement of integrity or just write the phrase "Statement of Integrity" and sign your name to it. 
+
+All homeworks should be handwritten (unless otherwise noted).
+
+__Exercise 1__. Answer the following questions using our course syllabus. These should be fairly quick and can all be answered in one phrase or sentence.
+
+a. Look at the course learning outcomes. Which of the learning outcomes listed are you most excited for and why?
+
+b. What course materials are you permitted to use on assessments?
+
+c. What file should you look at on Canvas to get information on all relevant due dates and materials for the course?
+
+d. If you miss class, where can you go to obtain missed notes and/or missed handout answers?
+
+e. In this class, we will use groups to help cement some concepts and for practice on concepts introduced throughout class. What are __three__ characteristics or traits of how an ideal group member should act?
+
+f. Take a moment to scroll through the advice of students who took this class in the previous academic year (the file is linked on Canvas in the To-Do list). What is one piece of advice that you hope to apply to our course this semester?
+
+<br>
+
+__Exercise 2__. In class, you filled out a survey that all STAT 113 students completed. For each of the questions given below that were asked in the survey, write what the variable is and state whether the variable is __categorical__ or __quantitative__. For any categorical variable, state all of the __levels__ of the variable.
+
+a. What is your GPA?
+
+b. What is your Class Year (First-year, Sophomore, etc.)?
+
+c. How many hours of exercise do you get in a typical week?
+
+d. How many hours did it take you to travel to SLU?
+
+e. Do you have a `Twitter` account?
+
+<br>
+
+__Exercise 3__. Listen to a statistical podcast using an app on your phone or using a computer web browser. The goal of this assignment is to see how statistics shows up in your daily life or in a topic that interests you. The podcast that I recommend is Stats and Stories because the discussions are not too technical.
+
+<https://statsandstories.net/episodes>
+
+<http://www.cas.miamioh.edu/statsandstories/archives.html>
+
+Additionally, the archive is up-to-date and, if you do not want to download a Podcast app to your phone, you can easily listen through the website. There are a few 5-10 minute podcasts, but, for the purposes of this assignment, I would like you to choose one that is in the 25 - 35 minute range. There is also a full transcript given for each podcast on the webste.
+
+Most importantly, _pick a topic that interests you._ After listening to the podcast, write-in __by hand__ the answers to the following questions (about two full sentences per question):
+
+a. Provide a brief summary of the podcast. What were some of the major points?
+
+b. Describe the role of the guest lecturer. What is their job? How does the guest lecturer integrate statistics into their career? 
+
+c. Relate the podcast to at least 2 concepts or terms that we have covered so far in STAT 113.
+
+d. Describe some of the future work that can be done in the topic of the podcast. 
+
+e. What would be two major take-aways from the podcast?
+
+<br>

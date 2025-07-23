@@ -1,0 +1,355 @@
+---
+title: "Section 5 Homework"
+format: 
+  html:
+    self-contained: true
+execute:
+  echo: false
+  warning: false
+  fig-height: 3
+---
+
+__Reminder__: You __are__ allowed to work with other students on the homework assignments but you must acknowledge who you worked with at the top of your homework assignment.
+
+At the top of you assignment, __List Any Collaborators__ (if any):
+
+__Statement of Integrity__: All work submitted is my own, and I have followed all rules for collaboration.
+
+__Signature__: 
+
+On the top of your assignment, copy the entire statement of integrity or just write the phrase "Statement of Integrity" and sign your name to it. 
+
+All homeworks should be handwritten (unless otherwise noted).
+
+<br>
+
+__Exercise 1__: In this exercise we will determine whether there is evidence of a home-field advantage in the National Football League (NFL) during the pandemic (when many stadiums did not have fans). Data was collected on the first 4 weeks of the NFL season. In these weeks, the home team won 32 times while the visiting team won 31 times (there was also 1 tie, which we will drop from the data for simplicity). Based on the data collected, is there evidence that the proportion of wins for home teams is greater than 0.5 during the pandemic (implying a home field advantage) or less than 0.5 during the pandemic (implying a home field disadvantage)?
+
+a. __Prepare__: What is our variable of interest? Is it quantitative or categorical?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- Hint: Our variable of interest is whether or not the home team won the game.
+:::
+
+b. What is the parameter of interest?
+
+c. Write the null hypothesis using notation and the alternative hypothesis using notation. For the null hypothesis, consider what the proportion of times the home team wins might be if there is no home field advantage.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- $H_0: p = 0.5$
+
+- $H_a: p \neq 0.5$
+:::
+
+d. What is the sample proportion and the sample size?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- $\hat{p}$ = 0.5079, $n$ = 63
+:::
+
+e. __Check__: Use the sample size $n$ and the null hypothesized value $p_0$ to check that the sampling distribution of the sample proportion is approximately normal under the null hypothesis (and that therefore we can use our Z-distribution to find a p-value). Assume the independence condition holds for this check.
+
+f. __Calculate__: Compute the standard error, draw the sampling distribution of $\hat{p}$ assuming that the null hypothesis is true. Mark the observed $\hat{p}$ on the distribution and shade the area that represents the p-value.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- your sampling distribution should look like this (the dark area is the shaded area):
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+mu2 <- 0.5; sigma2 <- 0.063
+
+ggplot(data = NULL, aes(c(mu2 - 3 * sigma2, mu2 + 3 * sigma2))) +
+  geom_area(stat = "function", fun = dnorm,
+            args = list(mean = mu2, sd = sigma2), fill = "lightblue4",
+            xlim = c(mu2 - 3 * sigma2, 0.4932)) +
+    geom_area(stat = "function", fun = dnorm, fill = "grey90",
+            xlim = c(0.4932, 0.5079),
+            args = list(mean = mu2, sd = sigma2)) +
+  geom_area(stat = "function", fun = dnorm, fill = "lightblue4",
+            xlim = c(0.5079, mu2 + 3 * sigma2),
+            args = list(mean = mu2, sd = sigma2)) +
+  labs(x = "Sampling Distribution of Sample Proportion if Null is True", y = "") +
+  geom_vline(aes(xintercept = 0.5079)) +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(breaks = c(mu2 - 3 * sigma2, 
+                                mu2 - 2 * sigma2,
+                                mu2 - sigma2,
+                                mu2,
+                                mu2 + sigma2, 
+                                mu2 + 2 * sigma2,
+                                mu2 + 3 * sigma2)) +
+  theme_minimal() +
+  labs(caption = "Dark Area is Shaded")
+```
+:::
+
+g. Calculate the z-statistic, draw the z-distribution if the null hypothesis is true, and mark where our observed Z-statistic falls on the distribution. Then, shade the area that represents the p-value. 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after attempting part g)
+
+- Hint: what is the difference between the z-distribution and the sampling distribution you drew in part f?
+:::
+
+h. Use StatKey to find the p-value. 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part h)
+
+- your answer should be approximately `r (pnorm(-0.125) * 2) |> round(4)`
+:::
+
+i. __Conclude__: Provide a conclusion in context of the problem. Include an interpretation of your point estimate in your conclusion.
+
+j. What would a Type I error mean in context of this problem?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part j)
+
+- A **Type I error** would mean that we conclude that there is evidence of a home field advantage (or disadvantage), when, in reality there is no home field advantage (or disadvantage).
+:::
+
+k. What would a Type II error mean in context of this problem?
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part k)
+
+- A **Type II error** would mean that we conclude that there is no evidence for a home field advantage (or disadvantage), when, in reality there is a home field advantage (or disadvantage).
+:::
+
+l. A 95% confidence interval for the proportion of games won by the home team is (0.384, 0.631). Using the interval, is there evidence that the proportion is different than 0.5? Explain.
+
+<br>
+
+__Exercise 2__. Suppose that you want to determine if people have ESP (extrasensory perception), or psychic abilities. To do so, you gather a random sample of 50 U.S. adults. For each adult, you tell them that you are thinking of a whole number between 1 and 7 (1, 2, 3, 4, 5, 6, or 7). You write down the number you are thinking, and ask the person to guess what number you wrote down. If they get it right, you record a `"Correct"`, and if they get it wrong, you record an `"Incorrect"` After collecting data on all 50 adults, you find that 10 of them correctly matched the number you were thinking of.
+
+Using this data, is there evidence to say that U.S. adults do something other than random guessing at your number question (either answering more correctly than what would be expected under random guessing or answering less correctly than what would be expected under random guessing).
+
+a. __Prepare__: Write down the null and alternative hypotheses in notation (Hint: If people do __not__ have any psychic ability, what proportion of the time would you expect people to correctly match the number you were thinking of?).
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- $H_0: p = \frac{1}{7}$
+
+- $H_a: p \neq \frac{1}{7}$
+:::
+
+b. __Check__: Assume the independence condition holds. Check the success-failure condition. Complete the rest of the steps of the test regardless of whether the success-failure condition holds.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- you should find that the success-failure condition does not hold and the sampling distribution of the sample proportion may not be approximately normally distributed
+:::
+
+c. __Calculate__: Calculate the sample proportion and the standard error. Then, draw the sampling distribution of the sample proportion, assuming that the null hypothesis is true and shade the region that represents the p-value.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- $\hat{p}$ = 0.2, $n = 50$, $SE = 0.0495$
+:::
+
+d. Find the appropriate Z statistic for the test.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- $Z = -1.154$
+:::
+
+e. Use StatKey to find a p-value for the test.
+
+f. __Conclude__: Write a full conclusion in context of the problem, including a statement about your point estimate.
+
+g. Explain what a Type I Error would mean in the context of this problem.
+
+h. In class, we used a courtroom analogy to explain the concept of a Type I and Type II Error. Another common analogy is referees deciding whether or not a call "made on the field" in sports like football and basketball should be overturned after a team challenges the call. The null hypothesis in this setting is that the call made on the field was correct while the alternative hypothesis is that the call made on the field is incorrect. What is a Type I Error in this setting? What is a Type II Error in this setting?
+<br>
+
+__Exercise 3__. In class, we analyzed class data on preference for a starter Pokemon (Bulbasaur, Charmander, or Squirtle) from the original Pokemon games. The _Mynavi_ corporation based in Japan actually conducted a survey to answer this question. The company surveyed data from 400 college students who had played the original Pokemon games, asking each student which Pokemon they chose in the original Red and Blue video games and why they chose that Pokemon. The results of the survey are:
+
+* 113 people chose Bulbasaur,
+* 157 people chose Charmander, 
+* 130 people chose Squirtle
+
+Using the data from the survey, conduct a statistical hypothesis test to determine if there is any evidence for a preference for any of the three starter Pokemon.
+
+a. __Prepare__: Write the null hypothesis in statistical notation and the alternative hypothesis in words.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- $H_0: p_b = p_c = p_s = \frac{1}{3}$
+
+- $H_a:$ at least one of the proportions is different than $\frac{1}{3}$.
+:::
+
+b. __Check__: Assume the independence assumption holds. Check the other condition we discussed for this test.
+
+c. __Calculate__. Find the __expected__ counts for each Pokemon choice if the null hypothesis is true.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- $400 \cdot \frac{1}{3}$ = 133.3 for bulbasaur, 133.3 for charmander, and 133.3 for squirtle
+:::
+
+d. What are the degrees of freedom for the chi-square statistic?
+
+e. Calculate the chi-squared statistic.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part e)
+
+- $X^2 = 7.385$
+:::
+
+f. Using StatKey, draw the distribution of $X^2$ if the null hypothesis is true. Mark your observed chi-square statistic on your graph and shade the region that represents the p-value.
+
+g. Using StatKey, find a p-value for the test.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part g)
+
+- your p-value should be 0.02491
+:::
+
+h. __Conclude__: Write a conclusion in context of the problem. You do not need to explicitly write a statement about the point estimates in your conclusion.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part h)
+
+- Your conclusion should be along the lines of: there is __moderate__ evidence for a preference for at least one of the three starter pokemon ($X^2 = 7.385$, p-value = $0.02491$).
+:::
+
+i. How do the expected and observed counts tie in with your conclusion? In other words, based on the expected and observed counts, why are we finding moderate evidence for a preference?
+
+<br>
+
+__Exercise 4__. Is there evidence of an association between handedness (either `right` or `left` handed) and whether or not someone plays a sport in college? In some sports, being left-handed is perceived as a slight advantage while in others, being left-handed is perceived as a disadvantage. We will use the STAT 113 survey data to explore this question. Below is a contingency table of counts as well as a stacked bar plot of the data.
+
+```{r}
+library(tidyverse)
+library(pander)
+survey_df <- read_csv(here::here("data_private/stat113_survey.csv"))
+new_df <- survey_df |>
+  filter(Hand == "Right" | Hand == "Left") |>
+  filter(Sport == "Yes" | Sport == "No")
+pander(with(new_df, table(Hand, Sport)))
+```
+
+```{r}
+ggplot(data = new_df, aes(x = Hand, fill = Sport)) +
+  geom_bar() +
+  scale_fill_viridis_d() +
+  theme_minimal()
+```
+
+a. __Prepare__. Write the null and alternative hypotheses for the question of interest.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- $H_0:$ There is no association between handedness and whether or not a student plays a Sport at SLU.
+
+- $H_0:$ There is an association between handedness and whether or not a student plays a Sport at SLU.
+:::
+
+b. __Check__. Assume the independence assumption holds. Check the other condition or the test.
+
+Proceed with the steps of the test even if the assumption in __Check__ was not satisfied.
+
+c. __Calculate__. Find the $X^2$ statistic for this example.
+
+d. Find the degrees of freedom.
+
+e. Use StatKey to sketch the chi-squared distribution if the null hypothesis is true. Then, mark your observed $X^2$ statistic on your graph and shade the region that represents the p-value.
+
+f. Use StatKey to find the p-value.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part f)
+
+- p-value = 0.2114
+:::
+
+g. __Conclude__. Write a conclusion in context of the problem.
+
+<br>
+
+__Exercise 5__. The video game Super Smash Ultimate is a fighting-style game where up to 4 players battle. In the game, there is an also an option to play with or without items. Suppose that you and three friends play __30__ matches of Super Smash. In the data, the four players in these matches are denoted as Player __A__, __B__, __C__, and __D__. Additionally, 15 of these matches are played with items and 15 are played without items. You now want to determine if there is evidence that __whether or not items were used__ and __which player won__ are associated.
+
+The following is a contingency table of the data collected.
+
+```{r}
+library(pander)
+tab <- as.table(matrix(c(3, 2, 3, 10, 3, 0, 6, 3), byrow = TRUE, nrow = 4))
+colnames(tab) <- c("Items", "No Items")
+pander(tab)
+```
+
+a. __Prepare__. What are the variables of interest in this example? How many levels does each variable have?
+
+b. Write the null and alternative hypotheses for the question of interest in words.
+
+c. __Check__. Assume that the independence assumption holds. Check the other condition for the test.
+
+Complete the rest of the test regardless of whether or not the assumption in __Check__ holds.
+
+d. __Calculate__. Create a table of all 8 Expected Counts, if there is no association between the two variables.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+```{r}
+chisq_test_out <- chisq.test(tab, correct = FALSE)
+chisq_test_out$expected |> pander::pander()
+```
+:::
+
+```{r}
+chisq_out <- chisq.test(tab, correct = FALSE)
+```
+
+The calculation of $X^2$ is a bit of a pain for this example so the value is given here: `r round(chisq_out$statistic, 3)`. 
+
+e. What are the degrees of freedom for the chi-squared distribution for the test?
+
+f. Using StatKey, the degrees of freedom, and the $X^2$ statistic, sketch a graph of the chi-squared distribution if the null hypothesis is true, mark the observed $X^2$ statistic on the distribution, and shade the region that represents the p-value.
+
+g. Use StatKey to find the exact p-value. 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part g)
+
+- p-value = 0.04665
+:::
+
+h. __Conclude__. Write a conclusion in context of the problem.
+
+i. Use the expected and observed tables of counts to explain the results from your hypothesis test. 
+
+<br>
+
+__Exercise 6__. Choose __1__ of the apps that has been developed by a current or past SLU student at  <https://stlawu.shinyapps.io/index/> that interests you. Shiny is an extension of `R` that allows users of `R` to write their own interactive apps. Answering the questions below will be easier (and more enjoyable) if you select something that you are interested in learning about. There are topics in sports, education, science, and more!
+
+On a separate sheet of paper, write down
+
+* the name of the App that you chose.
+
+* two to three sentences describing the general overall purpose of the app (how would you describe the purpose of the app to someone a little unfamiliar with the topic you selected?)
+
+* something cool that you discovered after messing around with the app for a couple of minutes (in just a sentence or two).
+
+<br>

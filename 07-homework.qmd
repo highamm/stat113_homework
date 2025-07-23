@@ -1,0 +1,445 @@
+---
+title: "Section 7 Homework"
+format: 
+  html:
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  fig-height: 3
+---
+
+__Reminder__: You __are__ allowed to work with other students on the homework assignments but you must acknowledge who you worked with at the top of your homework assignment.
+
+At the top of you assignment, __List Any Collaborators__ (if any):
+
+__Statement of Integrity__: All work submitted is my own, and I have followed all rules for collaboration.
+
+__Signature__: 
+
+On the top of your assignment, copy the entire statement of integrity or just write the phrase "Statement of Integrity" and sign your name to it. 
+
+All homeworks should be handwritten (unless otherwise noted).
+
+<br>
+
+__Exercise 1__. Suppose that we are interested in the relationship between driving distance and driving accuracy for all male professional golfers. We obtain data on 193 professional golfers from the 2018 season and record their driving distance (measured in yards) as well as their driving accuracy (measured in percent of fairways hit). We now want to formally assess whether there is evidence for association between driving distance (the response) and accuracy (the predictor), and we want to obtain a confidence interval for the slope parameter.
+
+```{r}
+library(tidyverse); library(here)
+golf_df <- read_csv(here("data/pga_data_final.csv"))
+golf2018 <- golf_df |> filter(year == 2018) |>
+  arrange(ranking)
+```
+
+```{r}
+ggplot(data = golf2018, aes(x = driving_accuracy, y = driving_distance)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  labs(y = "driving distance (yards)", x = "percent fairways hit")
+```
+
+```{r}
+lm(driving_distance ~ driving_accuracy, data = golf2018) |>
+  pander::pander()
+```
+
+a. __Prepare__. Write down the hypotheses for the question of interest in statistical notation and in words.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+- $H_0: \beta_1 = 0$. There is no association between driving distance and driving accuracy of professional male golfers.
+
+- $H_a: \beta_1 \neq 0$. There is an association between driving distance and driving accuracy of professional male golfers.
+
+:::
+
+b. Write down the fitted regression equation from the table of output.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+- $\hat{Y} = 336.9 + -0.6554 X$, 
+
+where $\hat{Y}$ is predicted driving distance and $X$ is driving accuracy.
+
+:::
+
+We will skip the __Check__ step because we have not discussed what to check in class yet.
+
+c. __Calculate__. State the degrees of freedom for the T-distribution. Then, use StatKey to find the $t^*$ value for a 90% confidence interval.
+
+d. Using the regression output and what you found on StatKey, calculate a 90% confidence interval for the slope parameter.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part d)
+
+- 90% confidence interval for the slope parameter: (-0.8379, -0.4729)
+
+:::
+
+e. Verify that the T-statistic for testing the slope in the regression output is the (point estimate minus the null hypothesized value) divided by the (standard error). 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part e)
+
+- $T = \frac{-0.6554 - 0}{0.1104} = -5.939$, which matches the T-statistic given in the output.
+:::
+
+f. Write down the p-value given in the regression output for a hypothesis test on the slope.
+
+g. __Conclude__. Interpret your confidence interval in context of the problem.
+
+h. Write a conclusion for your hypothesis test (you can skip an interpretation of the point estimate in your conclusion because you just interpreted a confidence interval for the slope).
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part h)
+
+- There is __strong__ evidence that driving distance and driving accuracy are associated ($T = -5.939$, p-value $< 0.0001$).
+:::
+
+<br>
+
+__Exercise 2__. Sakai was the university's "old" Learning Management System. You can think of Sakai as being similar in purpose to Canvas. Sakai kept track of how many times students visited the site for a particular course. For this exercise, we will practice a little bit more with regression and look at the relationship between current grade in STAT 113 (in points) and how many times a student  visited the Sakai site (in number of times) for __54__ students in a STAT 113 class from a couple of years ago. Below is a scatterplot of the data along with output from a linear regression with grade (points) as the response and number of visits to Sakai as the predictor.
+
+```{r, echo = FALSE, results = "show", fig.height = 3}
+library(tidyverse)
+both_df <- read_csv(here::here("data/sakai_visits.csv"))
+
+ggplot(data = both_df, aes(x = Total, y = Current_Grade)) +
+  geom_point(colour = "seagreen3") +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Number of Visits", y = "Current Grade") +
+  ylim(c(25, 103)) +
+  theme_minimal()
+```
+
+```{r, results = "as.is"}
+library(pander)
+mod <- lm(Current_Grade ~ Total, data = both_df)
+pander(mod)
+```
+
+a. Describe the relationship between the Grade and the Number of Visits to Sakai.
+
+b. __Prepare__. Write the null and alternative hypotheses in statistical notation for assessing whether there is an association between grade and number of visits to Sakai.
+
+c. Write the theoretical/population model. Then write the fitted regression equation from the table of output.
+
+__Check__. We will again skip check because we have not discussed this in class yet. One of the assumptions, however, is linearity, which is slightly violated based on the scatterplot. Regardless, we will continue with the steps for the confidence interval and hypothesis test for practice.
+
+d. __Calculate__. State the degrees of freedom for the T-distribution. Then, use StatKey to find the $t^*$ value for a 90% confidence interval.
+
+e. Using the regression output and what you found on StatKey, calculate a 90% confidence interval for the slope parameter.
+
+f. Write down the p-value given in the regression output for a hypothesis test on the slope.
+
+g. __Conclude__. Interpret your confidence interval in context of the problem.
+
+h. Write a conclusion for your hypothesis test (you can skip an interpretation of the point estimate in your conclusion because you just interpreted a confidence interval for the slope).
+
+<br>
+
+__Exercise 3__. Suppose that we want to investigate the association between valence, a measure of song positivity, and song genre, either `pop` or `rock` in a sample of 2166 songs collected from spotify in 2019 and 2020. 
+
+```{r}
+library(tidyverse); library(lubridate)
+song_df <- read_csv(here::here("data/spotify_songs.csv")) |> select(track_album_release_date,
+                                         track_name, track_artist,
+                                         playlist_genre, valence,
+                                         energy) %>%
+  mutate(date = ymd(track_album_release_date),
+         year = year(date)) %>%
+  filter(year >= 2019) %>%
+  filter(playlist_genre == "pop" | playlist_genre == "rock")
+```
+
+
+For this example, $Y$, the response variable, will be valence, measured in points by Spotify, and genre, the explanatory variable, will be a categorical variable that is equal to `1` if a song is `rock` and `0` if a song is `pop`.
+
+The first three observations of the data set are given below:
+
+```{r}
+library(pander)
+pander(song_df %>% slice(1:3) %>% select(2:5))
+```
+
+The output from the regression model, as well as side-by-side boxplots, are given below.
+
+```{r, echo = FALSE}
+library(pander)
+pander(lm(valence ~ playlist_genre, data = song_df))
+```
+
+```{r, echo = FALSE}
+ggplot(data = song_df, aes(x = playlist_genre, y = valence)) +
+  geom_boxplot(colour = "sienna4", fill = "sienna1") +
+  xlab("Genre (0 = Pop, 1 = Rock)") +
+  theme_minimal() +
+  labs(y = "valence (song positivity, in points)")
+```
+
+a. Define an indicator variable that is equal to a 0 if a song is in the `pop` genre and a 1 if a song is in the `rock` genre. 
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part a)
+
+$$
+genre_{ind} = \begin{cases}
+0, \text{ song is pop}, \\
+1, \text{ song is rock}
+\end{cases}
+$$
+:::
+
+b. Write down the fitted regression equation using the output above and your indicator variable.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part b)
+
+$\hat{Y} = 0.4829 - 0.03965 \text{genre}_{ind}$
+:::
+
+c. Predict the song valence (positivity) for a song that is a pop song. This is the same as the mean valence for all pop songs.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing part c)
+
+- 0.4829 points
+:::
+
+d. Predict the song valence for a song that is a rock song. This is the same as the mean valence for all rock songs.
+
+e. Perform a hypothesis test to determine if the mean valence for pop songs is different than the mean valence for rock songs.
+
+__Prepare__: Write the null and alternative hypotheses in notation.
+
+__Check__: We will again skip check until we discuss this in class.
+
+__Calculate__: Find the appropriate T-statistic and p-value from the output above. Also, state the degrees of freedom.
+
+__Conclude__: Write a full conclusion in context of the problem.
+
+f. Find a 95% confidence interval for the difference in mean valence scores between rock songs and pop songs.
+
+__Prepare__: What is your point estimate and standard error? Is your point estimate for the difference in sample means of (pop song valence minus rock song valence) or is it for (rock song valence minus pop song valence)?
+
+__Calculate__: What are the degrees of freedom? Using the degrees of freedom, find the appropriate $t^*$ value for your interval with StatKey. Then calculate the 95% confidence interval for the difference in mean valence.
+
+::: {.callout-tip collapse="true"}
+## Checkpoint (Check after completing the Calculate step)
+
+- $t^* = 1.9611$
+
+- your 95% confidence interval should be: (-0.058479, -0.02082)
+:::
+
+__Conclude__: Interpret the interval in context of the problem.
+
+<br>
+
+__Exercise 4__. Recall the stroop experiment that we performed in class a while ago. In this experiment, we separated into two groups: a group that completed a test where the colour of the words matched the word meaning (the `"control"` group) and a group that completed a test where the colour of the words did not necessarily match the word meaning (the `"stroop"` group. The response variable we recorded was time that it took to complete the test (in seconds).
+
+We will now formally assess (with a statistical test) whether the time to complete the test and the test group are associated. In other words, we will assess whether there is evidence that the average time to complete the test for the `control` group is different than the average time to complete the test for the `stroop` group.
+
+Below is a side-by-side boxplot of the data we collected, along with output from a fitted regression model with the indicator variable defined with `control = 0` and `stroop = 1`.
+
+```{r}
+stroop_df <- read_csv("https://raw.githubusercontent.com/highamm/stat113/main/data_server/stroop.csv")
+ggplot(data = stroop_df, aes(x = test, y = time)) +
+  geom_boxplot(colour = "thistle4", fill = "thistle1") +
+  theme_minimal() +
+  labs(y = "time (seconds)")
+```
+
+```{r}
+lm(time ~ test, data = stroop_df) |> pander::pander()
+```
+
+Note that there are `r nrow(stroop_df)` students in the data set.
+
+a. Write down the fitted regression equation using the output above. Define the indicator variable in your model.
+
+b. Complete the hypothesis test described in the problem using the following steps.
+
+__Prepare__: Write the null and alternative hypotheses in notation.
+
+__Prepare__: What is your point estimate for the difference in means?
+
+Skip __Check__ for now and assume the assumptions for the test hold.
+
+__Calculate__: Find the appropriate T-statistic and p-value from the output above. 
+
+__Conclude__: Write a full conclusion in context of the problem. You can skip an interpretation of your point estimate in your conclusion because you will interpret a confidence interval for the difference in means next.
+
+c. Find a 90% confidence interval for the slope parameter, which represents a difference in means for this example.
+
+__Prepare__: What is your point estimate and standard error? Is your point estimate for the difference in sample means of (time for control group minus time for stroop group) or is it for (time for stroop group minus time for control group)?
+
+__Calculate__ What are the degrees of freedom? What is the appropriate t* value for your interval?
+
+__Calculate__: Calculate the 95% confidence interval for the difference in mean time.
+
+__Conclude__: Interpret the interval in context of the problem.
+
+<br>
+
+__Exercise 5__. In this exercise, we will formally assess whether there is evidence for an association between type of `Award` preferred (Nobel, Olympic, or Academy) and `GPA`, using data collected from the STAT 113 survey.
+
+Side-by-side boxplots, some summary information, and output from a model are shown below.
+
+```{r}
+survey_df <- read_csv(here::here("data_private/stat113_survey.csv")) |>
+  filter(!is.na(Award) & !is.na(GPA))
+
+ggplot(data = survey_df, aes(x = Award, y = GPA)) +
+  geom_boxplot(outlier.shape = 8, colour = "turquoise4", fill = "turquoise1") +
+  theme_minimal()
+```
+
+```{r}
+survey_df |> group_by(Award) |>
+  summarise(GPA_mean = mean(GPA, na.rm = TRUE), ## get means by position
+            sample_size = n()) |> ## get sample size by position
+  pander::pander() ## make table pretty
+```
+
+<br>
+
+```{r}
+mod <- aov(GPA ~ Award, data = survey_df)
+pander::pander(anova(mod))
+```
+
+a. Write the null and alternative hypotheses for the overall ANOVA testing association between award preference and GPA.
+
+b. Write the sample mean GPA for students who prefer an Olympic medal in statistical notation.
+
+c. Using the output, write the p-value for the test of association.
+
+d. Using the p-value, write a conclusion in context of the problem. 
+
+Below is output from a Tukey's Honestly Significant Difference procedure on the data. Complete the following regardless of whether or not you found evidence of association in the overall F-test.
+
+```{r}
+#| echo: false
+TukeyHSD(mod)$Award |> knitr::kable()
+```
+
+e. Locate the `Olympic Gold-Nobel Prize` row. Write the null and alternative hypotheses, in statistical notation, for this particular hypothesis test.
+
+f. Interpret the value of `diff` for this row, in context of the problem.
+
+g. Interpret the value of `lwr` and `upr` for this row, in context of the problem.
+
+h. Write a conclusion using the `p adj` value for this row.
+
+<br>
+
+__Exercise 6__. We will now go back to some of the earlier exercises and check some of the conditions for inference with these models. Note that you can skip checking __independence__ for each of the models below, as often you would need a little bit more information about how the data was collected to assess this assumption.
+
+a. Using the graphs below (scatterplot, residuals vs. total visits, and histogram of residuals), assess the __linearity__, __normality / sample size__, and __constant variance__ assumptions for the model with course grade as the response and number of visits to Sakai as the predictor for the __54__ students in the data set. 
+
+```{r}
+mod <- lm(Current_Grade ~ Total, data = both_df)
+sakai_aug <- broom::augment(mod)
+ggplot(data = both_df, aes(x = Total, y = Current_Grade)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Number of Visits", y = "Current Grade") +
+  ylim(c(25, 103)) +
+  theme_minimal()
+ggplot(data = sakai_aug, aes(x = Total, y = .resid)) +
+  geom_point() +
+  theme_minimal()
+ggplot(data = sakai_aug, aes(x = .resid)) +
+  geom_histogram(colour = "thistle4", fill = "thistle1", bins = 19) +
+  theme_minimal()
+```
+
+b. Using the graphs below (residuals vs. noise type and histogram of residuals), assess the __normality / sample size__, and __constant variance__ assumptions for the model with words as the response and noise type as the predictor for the `r nrow(stroop_df)` students.
+
+```{r}
+noise_mod <- lm(time ~ test, data = stroop_df)
+noise_aug <- broom::augment(noise_mod)
+
+ggplot(data = noise_aug, aes(x = test, y = .resid)) +
+  geom_boxplot(colour = "seagreen4", fill = "seagreen1", outlier.shape = 8) +
+  theme_minimal()
+ggplot(data = noise_aug, aes(x = .resid)) +
+  geom_histogram(colour = "seagreen4", fill = "seagreen1", bins = 20) +
+  theme_minimal()
+```
+
+c. Using the graphs below (residuals vs. noise type and histogram of residuals), assess the __normality / sample size__ and __constant variance__ assumptions for the model with GPA as the response and Award preference as the predictor for the `r sum(!is.na(survey_df$GPA))` students.
+
+```{r}
+gpa_mod <- lm(GPA ~ Award, data = survey_df)
+gpa_aug <- broom::augment(gpa_mod)
+
+ggplot(data = gpa_aug, aes(x = Award, y = .resid)) +
+  geom_boxplot(outlier.shape = 8, colour = "skyblue4", fill = "skyblue1") +
+  theme_minimal()
+ggplot(data = gpa_aug, aes(x = .resid)) +
+  geom_histogram(colour = "skyblue4", fill = "skyblue1", bins = 20) +
+  theme_minimal()
+```
+
+<br>
+
+__Exercise 7__. Use the following choices to determine which procedure you would use to answer a few questions of interest.
+
+1. Confidence interval or hypothesis test for a proportion.
+    
+2. Chi-squared goodness of fit test.
+    
+3. Chi-squared test of association.
+
+4. Confidence interval or hypothesis test for a mean or for a difference in means from paired data.
+
+5. Confidence interval or hypothesis test for a slope in a regression model with a quantitative predictor.
+
+6. Confidence interval or hypothesis test for a difference in means in a regression model with a categorical predictor with two levels.
+
+7. ANOVA hypothesis test for association for a categorical predictor with more than two levels and a quantitative response.
+
+Recall some of the variables collected in the STAT 113 survey data. Variables include: `GPA`, `Exercise` (hours per week), `Award` (olympic, nobel, or academy), `Class` year (First-year, Sophomore, Junior, or Senior), `Travel` (number of hours to get to SLU), `Height` (in inches), `Computer` (Mac or PC), `Twitter` (has twitter or does not), and `Pulse` (beats per minute).
+
+Which procedure would you use to answer the following questions?
+
+a. Is there evidence of an association between Class year and whether or not a student has a Twitter account?
+
+b. Is there evidence of an association between Height and Award preference?
+
+c. Is there evidence of an association between Exercise and Height?
+
+d. Is there evidence that average GPA is different than 3.2 points?
+
+e. Is there evidence that the percentage of students who have a Twitter is more than 50%?
+
+f. Is there evidence for a preference for `Award` wanted? 
+
+g. Is there evidence for an association between Exercise and Pulse?
+
+<br>
+
+__Exercise 8__. The purpose of this final homework question is for you to do a short reflection on this course! Answer each of the following questions in 2-3 sentences. What you will be graded on is (a) whether or not you actually answered the question, (b) that what you answered makes sense (e.g. you did not reference something that we didn't actually cover!), and (c) whether you answered the question in 2-3 sentences (there's no penalty for answering in more than 3 sentences but I'm hoping to keep each answer under 3 sentences out of respect for your own time!) This should take you __no longer__ than 30 minutes.
+
+__You may type the answers to this exercise if you would like__.
+
+a. Tell me a thing or two that you've learned about yourself from taking this class. This might be a perceived strength, weakness to work on, or something else entirely!
+
+b. Why did you take this course? If you took it for a major or a minor requirement, then why do you think that major or minor requires a course in intro statistics?
+
+c. About 75% of SLU students end up taking Intro Stat. Some students take it for a major requirement, as it is required by four out of five of SLU's most popular majors (Business, Economics, Biology (though Biology students can take Calc I and II instead), and Psychology (Performance and Communications Arts is the one that doesn't require it)), as well as many other majors. Why do you think Intro Stat is required by such a wide variety of majors?
+
+d. Explain one way in which intro stat was similar to what you thought it would be. Explain one way in which intro stat was different than what you thought it would be. 
+
+e. What was your favourite part or parts of learning introductory statistics concepts or of this class? Why? (Even if you hated everything, choose "the best of the worst").
+
+f. Explain to someone who _has not_ had intro stat what the main purpose of this class is.
+
+g. What advice would you give to someone taking this course this spring?
+
