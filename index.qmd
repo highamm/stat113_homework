@@ -15,8 +15,6 @@ urlcolor: blue
 * Email: mhigham@stlawu.edu
 * Office Hours: 15 minute slots bookable at <a href="https://calendly.com/mhigham/prof-higham-office-hours" target="_blank">https://calendly.com/mhigham/prof-higham-office-hours</a>. The link to book is also on our Canvas home page.
     + Note that you must book a time for office hours at least 12 hours in advance to guarantee that I am present and available at that time.
-* TA: Brody Pinto (bjpint21@stlawu.edu)
-    + major: Data Science
 
 <br>
 

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "STAT 113 Homework"
+  title: "STAT 113 Syllabus and Homework"
   author: "Matt Higham"
   chapters:
     - index.qmd
