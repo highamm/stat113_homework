@@ -371,7 +371,7 @@ d. By hand, calculate the __Margin of Error__ for a 95% confidence for this exam
 ```{r}
 library(tidyverse)
 library(here)
-survey_df <- read_csv(here("data_private/stat113_survey.csv"))
+survey_df <- read_csv(here("data_private/stat113_survey_f25.csv"))
 
 survey_hand <- survey_df |> filter(Hand == "Right" | Hand == "Left") 
 survey_sum <- survey_hand |>
