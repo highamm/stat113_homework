@@ -330,8 +330,6 @@ d. Based on the stacked barplot and on the proportions in the earlier questions,
 - Yes, it looks like the variables are associated because the proportion of students who play a sport that responded they would prefer the Olympic medal is much higher than the proportion of students who do not play a sport that responded they would prefer the Olympic medal. We can see this in the bar plot because the distribution of `No` sport students is substantially different than the distirbution of `Yes` sport students.
 :::
 
-e. Can you extend whatever conclusion you made in the previous question to all SLU students? In other words, for this question of interest, is our sample representative of all SLU students? Why? (Hint: to help answer this question, consider whether the relationship between Sport and Award would be different for SLU students who choose not to enroll in STAT 113).
-
 <br>
 
 __Exercise 12__. The `military` data set from the OpenIntro textbook contains data on over one million members of the United States military. Included among the variables collected are:
