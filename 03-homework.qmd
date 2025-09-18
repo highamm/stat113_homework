@@ -72,14 +72,6 @@ d. Suppose that the student in (b) has a GPA of 2.5 (making this value up to hav
 
 e. Suppose that the student in (c) has a GPA of 3.75 (making this value up to have complete anonymity in the survey). Find the residual for this student.
 
-f. Suppose that our population of interest for this exercise is all SLU students. Construct an argument for why the sample of students in our survey might __not__ be representative of our population of interest for GPA.
-
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part f)
-
-- answer should be include something about if GPA being systematically different for juniors and seniors (since the majority of stat113 survey data comes from freshmen and sophomores), our sample is not representative of all SLU students
-:::
-
 <br>
 
 __Exercise 2__. A data set from the OpenIntro textbook contains observations on 150 births at a hospital in North Carolina. Variables measured for each birth include
