@@ -209,7 +209,9 @@ __Exercise 6__. Make an argument for why the volunteer sample you discussed in t
 
 <br>
 
-__Exercise 7__. Suppose that a gardener wants to determine if a new brand of fertilizer improves her tomato plant growth, compared to the old brand of fertilizer. The gardener has 50 pots with 50 tomato plants to use for her study. Design an experiment for the gardener.
+__Exercise 7__. 
+
+a. Suppose that a gardener wants to determine if a new brand of fertilizer improves her tomato plant growth, compared to the old brand of fertilizer. The gardener has 50 pots with 50 tomato plants to use for her study. Design an experiment for the gardener.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing the exercise)
@@ -217,9 +219,8 @@ __Exercise 7__. Suppose that a gardener wants to determine if a new brand of fer
 - your experiment __must__ include _randomization_: that is, for this to be an experiment (not an observational study), the gardener must randomly select some pots to receive the old fertlizier and some pots to receive the new fertilizer.
 :::
 
-<br>
 
-__Exercise 8__. Suppose that, instead of the experiment, the gardener performs an observational study and just uses the new fertilizer for the northern half of her garden and uses the old fertilizer for the southern half. What might be a confounding variable in this study? Explain why the variable you chose might be confounding.
+b. Suppose that, instead of the experiment, the gardener performs an observational study and just uses the new fertilizer for the northern half of her garden and uses the old fertilizer for the southern half. What might be a confounding variable in this study? Explain why the variable you chose might be confounding.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing the exercise)
@@ -232,7 +233,7 @@ __Exercise 8__. Suppose that, instead of the experiment, the gardener performs a
 
 <br>
 
-__Exercise 9__. We discussed a few ways to collect data in class. In reality, sampling methods are typically more complicated than what we have discussed. There are entire courses devoted to sampling methods, survey methods, and collecting data. Let's investigate some of these complexities using the job discrimination data that we introduced on the first day of class. 
+__Exercise 8__. We discussed a few ways to collect data in class. In reality, sampling methods are typically more complicated than what we have discussed. There are entire courses devoted to sampling methods, survey methods, and collecting data. Let's investigate some of these complexities using the job discrimination data that we introduced on the first day of class. 
 
 For this exercise, you will need to open the Job_Discrimination_Paper.pdf file on Canvas, which is the published paper on the job discrimination data. To answer the questions below, you will read particular sections of this paper: you do not need to read the entire paper for this question.
 
@@ -245,6 +246,29 @@ b. Aside from the main finding of racial discrimination, what is one other resul
 __Read Section 5.1.__
 
 c. We have stated many times that, in experiments, confounding variables are balanced out when randomization into groups occurs. However, in this experiment, there actually could still be a confounding variable because we aren’t actually randomizing people, we are only randomizing names. What is one possible confounding variable given in this section? Why is it confounding (recall our definition of confounding variable from earlier in the semester).
+
+<br>
+
+```{r}
+library(tidyverse)
+library(here)
+survey_df <- read_csv(here("data_private/stat113_survey_f25.csv"))
+
+survey_hand <- survey_df |> filter(Hand == "Right" | Hand == "Left") 
+survey_sum <- survey_hand |>
+  summarise(totalright = sum(Hand == "Right"),
+                          total = n())
+```
+
+__Exercise 9__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
+
+a. What is the population of interest?
+
+b. What is the parameter of interest and what is the notation for this parameter?
+
+c. What is the point estimate and what is the notation for this point estimate?
+
+d. Is our sample _representative_ of the population of interest for the handedness characteristic? Why or why not?
 
 <br>
 
@@ -368,47 +392,20 @@ d. By hand, calculate the __Margin of Error__ for a 95% confidence for this exam
 
 <br>
 
-```{r}
-library(tidyverse)
-library(here)
-survey_df <- read_csv(here("data_private/stat113_survey_f25.csv"))
-
-survey_hand <- survey_df |> filter(Hand == "Right" | Hand == "Left") 
-survey_sum <- survey_hand |>
-  summarise(totalright = sum(Hand == "Right"),
-                          total = n())
-```
-
-<br>
-
 __Exercise 13__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
 
-a. What is the population of interest?
-
-b. What is the parameter of interest and what is the notation for this parameter?
+a. What is the point estimate and what is the notation for this point estimate?
 
 ::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part b)
-
-- $p$ the proportion of all SLU students who are right-handed.
-:::
-
-c. Is our sample _representative_ of the population of interest for the handedness characteristic? Why or why not?
-
-__Regardless of your answer to (c), continue with the steps for calculating a confidence interval__.
-
-d. What is the point estimate and what is the notation for this point estimate?
-
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part d)
+## Checkpoint (Check after completing part a)
 
 - hint: the notation for this point estimate is: $\hat{p}$
 :::
 
-e. Check the success-failure condition.
+b. Check the success-failure condition.
 
-f. Calculate a 99% confidence interval for the proportion of students who are right-handed at SLU.
+c. Calculate a 99% confidence interval for the proportion of students who are right-handed at SLU.
 
-g. Interpret the 99% confidence interval with the standard interpretation for a confidence interval.
+d. Interpret the 99% confidence interval with the standard interpretation for a confidence interval.
 
 <br>
