@@ -45,10 +45,15 @@ pander::pander(summary_tab)
 
 a. Write the fitted model for GPA with no predictors.
 
+```{r}
+#| echo: false
+names(summary_tab) <- c("mean", "n")
+```
+
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part a)
 
-- answer should look like: $\hat{Y} = 3.39$ where $\hat{Y}$ is predicted GPA.
+- answer should look like: $\hat{Y}$ = `r summary_tab$mean |> round(2)` where $\hat{Y}$ is predicted GPA.
 :::
 
 b. Predict the GPA of a male student who plays a varsity sport on campus, owns a Mac, is a Sophomore, and has 3 siblings.
