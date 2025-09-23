@@ -185,7 +185,7 @@ __Exercise 3__. In class, we analyzed class data on preference for a starter Pok
 
 Using the data from the survey, conduct a statistical hypothesis test to determine if there is any evidence for a preference for any of the three starter Pokemon.
 
-a. __Prepare__: Write the null hypothesis in statistical notation and the alternative hypothesis in words.
+a. __Prepare__: Write the null hypothesis in statistical notation and the alternative hypothesis in words. Define _one_ of the parameters of interest.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part a)
