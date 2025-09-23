@@ -399,11 +399,11 @@ __Exercise 7__. Use the following choices to determine which procedure you would
 
 4. Confidence interval or hypothesis test for a mean or for a difference in means from paired data.
 
-5. Confidence interval or hypothesis test for a slope in a regression model with a quantitative predictor.
+5. Confidence interval or hypothesis test for a slope in a regression model.
 
-6. Confidence interval or hypothesis test for a difference in means in a regression model with a categorical predictor with two levels.
+6. Confidence interval or hypothesis test for a difference in means in a regression model.
 
-7. ANOVA hypothesis test for association for a categorical predictor with more than two levels and a quantitative response.
+7. ANOVA hypothesis test.
 
 Recall some of the variables collected in the STAT 113 survey data. Variables include: `GPA`, `Exercise` (hours per week), `Award` (olympic, nobel, or academy), `Class` year (First-year, Sophomore, Junior, or Senior), `Travel` (number of hours to get to SLU), `Height` (in inches), `Computer` (Mac or PC), `Twitter` (has twitter or does not), and `Pulse` (beats per minute).
 
