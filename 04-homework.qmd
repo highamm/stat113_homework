@@ -276,12 +276,6 @@ __Exercise 10__. Suppose that we are interested in the proportion of Maple trees
 
 a. Even though you know the true proportion of trees in St. Lawrence County that are taller than 40 feet, you decide to take a sample of 20 trees in the county. Describe what __sampling uncertainty/variability__ means in the context of this example.
 
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part a)
-
-- hint: for different samples of 20 trees, the proportion that are taller than 40 feet will change from one sample of 20 trees to another sample of 20 trees, this is __sampling uncertainty/variability__.
-:::
-
 b. Describe what the __sampling distribution of the sample proportion__ is in context of this example.
 
 ::: {.callout-tip collapse="true"}
