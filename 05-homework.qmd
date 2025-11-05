@@ -278,12 +278,6 @@ e. Use StatKey to sketch the chi-squared distribution if the null hypothesis is 
 
 f. Use StatKey to find the p-value.
 
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part f)
-
-- p-value = 0.2114
-:::
-
 g. __Conclude__. Write a conclusion in context of the problem.
 
 <br>
