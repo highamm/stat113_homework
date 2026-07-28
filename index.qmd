@@ -22,8 +22,6 @@ urlcolor: blue
   * Course Notes
     + Print out and bring to class.
     + Folder or 3-ring binder to keep notes in.
-  * Calculator
-    + Scientific or Graphing (but something other than a phone and something that does not have Internet access). If you only plan on using a calculator for exams, the PQRC (next to our classroom) does loan calculators for a few hours at a time.
     
 ***
 ***
@@ -79,25 +77,11 @@ Other policies on these in-class quizzes include:
     
 There will be 11 total quizzes, each worth 80 points, for a total of 800 points (since one of the quizzes is dropped).
 
-<!-- There will be three midterm exams and one final exam. For all exams, you are allowed a double-sided page (standard 8.5 by 11 inches) of handwritten notes. More information about the midterm exams will be given closer to the date of the first exam. -->
-
-<!-- current thinking: final is 150 points (cumulative but give specific handouts). optional: if choosing not to take it, the average of your top 10 assessments goes in for the final. -->
-
-<!-- The final exam will be split into two parts: -->
-
-<!-- 1. The first part will be a mini 25-point take-home non-cumulative exam covering things we discussed since the third midterm. Everyone must turn in this portion of the exam. -->
-
-<!-- 1. The second part will be a 75-point cumulative in-person final that covers material from __1__ of the previous midterms of your choosing. For this portion of the final, you have two choices: -->
-
-<!-- * you may choose to opt out of this portion of the final and take the average of your three midterm percentages as your percentage for this part of the final (e.g. You score a 120 / 150 = 80% on midterm 1, a 90 / 150 = 60% on midterm 2, and a 120 / 150 = 80% on midterm 3 so you earn ((0.8 + 0.8 + 0.6) / 3 * 75 = 55 points out of 75 for this part of the final). -->
-
-<!-- * you may choose to take this portion of the final in-person. The percentage you earn will __replace__ the midterm grade of the midterm that you chose to take the final on, if the percentage is higher on the final. (e.g. You score a 120 / 150 = 80% on midterm 1, a 90 / 150 = 60% on midterm 2, and a 120 / 150 = 80% on midterm 3, and you decide you'd like to improve upon your midterm 2 grade. You take the final exam on this material and score a 72 / 75 = 96%, which means that your midterm 2 grade changes from a 90 / 150 to a 0.96 * 150 = 144 / 150). __Important Note__: Choosing this option requires you to be available during our scheduled final exam time in finals week. -->
-
 <br>
 
 ### Homework Assignments
 
-Weekly homeworks are worth 10 points each and are due nearly every week on __Mondays__ and __Wednesdays__. The structure of the homework is:
+Weekly homeworks are worth 7 points each and are due nearly every week on __Mondays__ and __Wednesdays__. The structure of the homework is:
 
 * by 11:59 pm on __Monday__ , you should submit to Canvas your completed homework assignment (you can either submit pictures or you can scan a PDF using one of the campus scanners). You need to have attempted every part of every problem in this submission.
 * by __Wednesday__'s class time, you should submit a hard copy of your corrected homework. When you submit your homework to Canvas, a file of solutions will be made available to you. Use this file to correct any mistakes on your homework and submit the corrected version, as a hard copy, at the beginning of Wednesday's class.
@@ -108,13 +92,11 @@ Your lowest homework score will be dropped.
 
 <br>
 
-<!-- ### Participation -->
+### Participation
 
-<!-- We will use groups of four to complete handouts in-class throughout the semester. The groups will only be used for in-class work. We will reassign groups about three times during the semester. Your grade for participation will be based on an evaluation through a rubric that we will complete __three__ times throughout the semester. The rubric will be given to you on the first day of class so you know right away how you will be assessed for this portion of your grade.  -->
+We will use groups of four to complete handouts in-class throughout the semester. The groups will only be used for in-class work. We will reassign groups about three times during the semester. Your grade for participation will be based on a written reflection that you will write on your participation in and out of class __three__ times throughout the semester. Each participation reflection is worth __10 points__ for a total of __30 points__.
 
-<!-- While the expectation is that you will attend most to all of the classes, life does happen and you may need to miss class sometimes! I will keep a packet of our notes and handouts in a folder outside of my office, Bewkes 123, that you can copy from or take pictures from. __However__, these notes should __never__ be removed from the table!! -->
-
-<!-- <br> -->
+<br>
 
 ### Final
 
@@ -132,8 +114,8 @@ __Example__. Suppose your 11 quiz scores are `55, 61, 65, 65, 65, 67, 70, 72, 75
 The 1000 points possible for the class will be allocated in the following way:
 
 * Quizzes: 80 points for each of 11 quizzes for a total of 800 points (with one of the quizzes dropped).
-* Homework Assignments: 11 Homeworks for 10 points each for a total of 100 points (with one of the homeworks dropped).
-<!-- * Participation: 3 participation rubric evaluations for 15 points each for a total of 45 points.  -->
+* Homework Assignments: 11 Homeworks for 7 points each for a total of 70 points (with one of the homeworks dropped).
+* Participation: 3 reflections for 10 points each for a total of 30 points.
 * Final Take-Home: 20 points.
 * Final In-Class: 80 points (optional: if choosing not to take this, the 80 points here will be the average of your highest 10 quizzes).
 
