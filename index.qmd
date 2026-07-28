@@ -81,7 +81,7 @@ There will be 11 total quizzes, each worth 80 points, for a total of 800 points 
 
 ### Homework Assignments
 
-Weekly homeworks are worth 7 points each and are due nearly every week on __Mondays__ and __Wednesdays__. The structure of the homework is:
+Weekly homeworks are worth 5 points each and are due nearly every week on __Mondays__ and __Wednesdays__. The structure of the homework is:
 
 * by 11:59 pm on __Monday__ , you should submit to Canvas your completed homework assignment (you can either submit pictures or you can scan a PDF using one of the campus scanners). You need to have attempted every part of every problem in this submission.
 * by __Wednesday__'s class time, you should submit a hard copy of your corrected homework. When you submit your homework to Canvas, a file of solutions will be made available to you. Use this file to correct any mistakes on your homework and submit the corrected version, as a hard copy, at the beginning of Wednesday's class.
@@ -94,7 +94,7 @@ Your lowest homework score will be dropped.
 
 ### Participation
 
-We will use groups of four to complete handouts in-class throughout the semester. The groups will only be used for in-class work. We will reassign groups about three times during the semester. Your grade for participation will be based on a written reflection that you will write on your participation in and out of class __three__ times throughout the semester. Each participation reflection is worth __10 points__ for a total of __30 points__.
+We will use groups of four to complete handouts in-class throughout the semester. The groups will only be used for in-class work. We will reassign groups about three times during the semester. Your grade for participation will be based on a written reflection that you will write on your participation in and out of class __three__ times throughout the semester. Each participation reflection is worth __15 points__ for a total of __45 points__.
 
 <br>
 
@@ -114,8 +114,8 @@ __Example__. Suppose your 11 quiz scores are `55, 61, 65, 65, 65, 67, 70, 72, 75
 The 1000 points possible for the class will be allocated in the following way:
 
 * Quizzes: 80 points for each of 11 quizzes for a total of 800 points (with one of the quizzes dropped).
-* Homework Assignments: 11 Homeworks for 7 points each for a total of 70 points (with one of the homeworks dropped).
-* Participation: 3 reflections for 10 points each for a total of 30 points.
+* Homework Assignments: 12 Homeworks for 5 points each for a total of 55 points (with one of the homeworks dropped).
+* Participation: 3 reflections for 15 points each for a total of 45 points.
 * Final Take-Home: 20 points.
 * Final In-Class: 80 points (optional: if choosing not to take this, the 80 points here will be the average of your highest 10 quizzes).
 
@@ -208,37 +208,22 @@ The following gives a tentative schedule and tentative weeks for exams. Note tha
 
 | Week | Date | Topics | 
 | ---- | ------ | ------------------------------- |
-| 0 | 8/27 | Intro to Data, Data Exploration |
-| 1 | 9/1 |  Data Exploration | 
-| 2 | 9/8 | Data Exploration | 
-| 3 | 9/15 | Introduction to Modeling, Regression  | 
-| 4 | 9/22 | Regression, Multiple Regression  | 
-| 5 | 9/29 | Normal Distribution, Data Collection | 
-| 6 | 10/6 |  Sampling Variability | 
-| 7 | 10/13\* | Sampling Distributions, Confidence Intervals | 
-| 8 | 10/20 | Introduction to Hypothesis Testing | 
-| 9 | 10/27 | Introduction to Hypothesis Testing | 
-| 10 | 11/3 | Chi-squared Tests |
-| 11 | 11/10 |  Hypothesis Testing with Quantitative Data | 
-| 12 | 11/17 | Hypothesis Testing with Quantitative Data  | 
-| 13 | 12/1 | Hypothesis Testing with Quantitative Data | 
-| 14 | 12/8\* | Topic Catch-Up|
+| 0 | 8/26 | Intro to Data, Data Exploration |
+| 1 | 8/31 |  Data Exploration | 
+| 2 | 9/7 | Data Exploration | 
+| 3 | 9/14 | Introduction to Modeling, Regression  | 
+| 4 | 9/21 | Regression, Multiple Regression  | 
+| 5 | 9/28 | Normal Distribution, Data Collection | 
+| 6 | 10/5 |  Sampling Variability | 
+| 7 | 10/12\* | Sampling Distributions, Confidence Intervals | 
+| 8 | 10/19 | Introduction to Hypothesis Testing | 
+| 9 | 10/26 | Introduction to Hypothesis Testing | 
+| 10 | 11/2 | Chi-squared Tests |
+| 11 | 11/9 |  Hypothesis Testing with Quantitative Data | 
+| 12 | 11/16 | Hypothesis Testing with Quantitative Data  | 
+| 13 | 11/30 | Hypothesis Testing with Quantitative Data | 
+| 14 | 12/7\* | Topic Catch-Up|
 
-<!-- ## Tentative Calendar of Due Dates -->
-
-<!-- The Exam Dates are tentatively scheduled for: -->
-
-<!-- * Exam 1: Wednesday, February 19 or Wednesday, February 26 -->
-<!-- * Exam 2: Wednesday, March 26 or Wednesday, April 2 -->
-<!-- * Exam 3: Wednesday, April 23 -->
-
-<!-- * Exam 1: Thursday, September 28 at 7:00 pm -->
-<!-- * Exam 2: Thursday, October 26 at 7:00 pm -->
-<!-- * Exam 3: Thursday, November 30 at 7:00 pm -->
-
-<!-- The exams are written to only take an hour, but you will have 90 minutes to complete the exam. -->
-
-<!-- Because of the night exams, we will not have class on Friday, September 29, October 27 and December 1. -->
 
 Please see the Final Exam section of the syllabus for the structure of the optional in-person final exam. The Final Exam date and time are set by the registrar later in the semester.
 
