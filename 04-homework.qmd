@@ -233,21 +233,21 @@ b. Suppose that, instead of the experiment, the gardener performs an observation
 
 <br>
 
-__Exercise 8__. We discussed a few ways to collect data in class. In reality, sampling methods are typically more complicated than what we have discussed. There are entire courses devoted to sampling methods, survey methods, and collecting data. Let's investigate some of these complexities using the job discrimination data that we introduced on the first day of class. 
+<!-- __Exercise 8__. We discussed a few ways to collect data in class. In reality, sampling methods are typically more complicated than what we have discussed. There are entire courses devoted to sampling methods, survey methods, and collecting data. Let's investigate some of these complexities using the job discrimination data that we introduced on the first day of class.  -->
 
-For this exercise, you will need to open the Job_Discrimination_Paper.pdf file on Canvas, which is the published paper on the job discrimination data. To answer the questions below, you will read particular sections of this paper: you do not need to read the entire paper for this question.
+<!-- For this exercise, you will need to open the Job_Discrimination_Paper.pdf file on Canvas, which is the published paper on the job discrimination data. To answer the questions below, you will read particular sections of this paper: you do not need to read the entire paper for this question. -->
 
-__Read the Abstract and Introduction__.
+<!-- __Read the Abstract and Introduction__. -->
 
-a. What do the authors mean when they say, at the top of page 3, "Since applicants’ names are randomly assigned, this gap can only be attributed to the name manipulation?"
+<!-- a. What do the authors mean when they say, at the top of page 3, "Since applicants’ names are randomly assigned, this gap can only be attributed to the name manipulation?" -->
 
-b. Aside from the main finding of racial discrimination, what is one other result the authors state that you found interesting or important?
+<!-- b. Aside from the main finding of racial discrimination, what is one other result the authors state that you found interesting or important? -->
 
-__Read Section 5.1.__
+<!-- __Read Section 5.1.__ -->
 
-c. We have stated many times that, in experiments, confounding variables are balanced out when randomization into groups occurs. However, in this experiment, there actually could still be a confounding variable because we aren’t actually randomizing people, we are only randomizing names. What is one possible confounding variable given in this section? Why is it confounding (recall our definition of confounding variable from earlier in the semester).
+<!-- c. We have stated many times that, in experiments, confounding variables are balanced out when randomization into groups occurs. However, in this experiment, there actually could still be a confounding variable because we aren’t actually randomizing people, we are only randomizing names. What is one possible confounding variable given in this section? Why is it confounding (recall our definition of confounding variable from earlier in the semester). -->
 
-<br>
+<!-- <br> -->
 
 ```{r}
 library(tidyverse)
@@ -260,7 +260,7 @@ survey_sum <- survey_hand |>
                           total = n())
 ```
 
-__Exercise 9__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
+__Exercise 8__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
 
 a. What is the population of interest?
 
@@ -272,7 +272,7 @@ d. Is our sample _representative_ of the population of interest for the handedne
 
 <br>
 
-__Exercise 10__. Suppose that we are interested in the proportion of Maple trees in the St. Lawrence county that are taller than 40 feet. The local government painstakingly measures every single tree in a __census__, finding that the proportion of all maple trees in St. Lawrence County taller than 40 feet is 0.29.
+__Exercise 9__. Suppose that we are interested in the proportion of Maple trees in the St. Lawrence county that are taller than 40 feet. The local government painstakingly measures every single tree in a __census__, finding that the proportion of all maple trees in St. Lawrence County taller than 40 feet is 0.29.
 
 a. Even though you know the true proportion of trees in St. Lawrence County that are taller than 40 feet, you decide to take a sample of 20 trees in the county. Describe what __sampling uncertainty/variability__ means in the context of this example.
 
@@ -318,7 +318,7 @@ i. Why does it not make sense to calculate and interpret a confidence interval f
 
 <br>
 
-__Exercise 11__. Suppose that you are interested in estimating the proportion of toddlers in the U.S. who are allergic to peanuts. You randomly select 150 toddlers and record whether each one has a peanut allergy. Assume that your sample is representative of all toddlers in the U.S.
+__Exercise 10__. Suppose that you are interested in estimating the proportion of toddlers in the U.S. who are allergic to peanuts. You randomly select 150 toddlers and record whether each one has a peanut allergy. Assume that your sample is representative of all toddlers in the U.S.
 
 You find in your sample that 20 out of the 150 toddlers have a peanut allergy.
 
@@ -360,7 +360,7 @@ f. Mark each of the following statements as True or False. Give a short one phra
 
 <br>
 
-__Exercise 12__. A common topic in the U.S. is the aging of the "baby boomer" generation. Let's look at the sampling distribution for a sample size of about 130 of the proportion of people in the U.S. who are 65 or older. The true proportion of people 65 or older at the time of the 2010 U.S. census is __0.12__.
+__Exercise 11__. A common topic in the U.S. is the aging of the "baby boomer" generation. Let's look at the sampling distribution for a sample size of about 130 of the proportion of people in the U.S. who are 65 or older. The true proportion of people 65 or older at the time of the 2010 U.S. census is __0.12__.
 
 Using the app that we used for Handout 4d (<https://stlawu.shinyapps.io/samp_dist_conf_int/>), drag the slider for the true proportion to 0.12 and the sample size to 130. Then, answer the following questions.
 
@@ -386,7 +386,7 @@ d. By hand, calculate the __Margin of Error__ for a 95% confidence for this exam
 
 <br>
 
-__Exercise 13__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
+__Exercise 12__. Suppose we are interested in the proportion of students that are right-handed at SLU. We take a convenience sample of STAT 113 students, finding that, of the `r survey_sum$total` surveyed, `r survey_sum$totalright` are right-handed.
 
 a. What is the point estimate and what is the notation for this point estimate?
 
