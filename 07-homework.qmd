@@ -291,7 +291,7 @@ __Exercise 5__. In this exercise, we will formally assess whether there is evide
 Side-by-side boxplots, some summary information, and output from a model are shown below.
 
 ```{r}
-survey_df <- read_csv(here::here("data_private/stat113_survey_f25.csv")) |>
+survey_df <- read_csv(here::here("data_private/stat113_survey_f26.csv")) |>
   filter(!is.na(Award) & !is.na(GPA))
 
 ggplot(data = survey_df, aes(x = Award, y = GPA)) +

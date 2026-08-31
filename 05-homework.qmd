@@ -242,7 +242,7 @@ __Exercise 4__. Is there evidence of an association between handedness (either `
 ```{r}
 library(tidyverse)
 library(pander)
-survey_df <- read_csv(here::here("data_private/stat113_survey_f25.csv"))
+survey_df <- read_csv(here::here("data_private/stat113_survey_f26.csv"))
 new_df <- survey_df |>
   filter(Hand == "Right" | Hand == "Left") |>
   filter(Sport == "Yes" | Sport == "No")
