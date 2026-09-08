@@ -284,11 +284,11 @@ b. Describe what the __sampling distribution of the sample proportion__ is in co
 - hint: the __sampling distribution of the sample proportion__ would result from repeatedly sampling 20 trees in St. Lawrence County millions of times.
 :::
 
-c. Use the sampling distribution app from Handout 4c (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution.
+c. Use the sampling distribution app from Handout 4c (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution. These values correspond to the mean of a large number (4000 in the app) of sample proportions and the standard deviation of a large number (4000 in the app) of sample proportions.
 
-d. Provide a calculation for the standard deviation of the sampling distribution and verify that your calculation is approximately the same as the standard deviation from the App.
+d. Provide a calculation for the standard deviation of the sampling distribution and verify that your calculation is approximately the same as the standard deviation of the 4000 sample proportions from the appfrom the App.
 
-e. Will the sampling distribution of the sample proportion be approximately normally distributed? Provide a calculation as evidence for your answer.
+e. Will the sampling distribution of the sample proportion be approximately normally distributed? In other words, will the 4000 sample proportions be approximately normally distributed? Provide a calculation as evidence for your answer.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part e)
@@ -324,7 +324,7 @@ You find in your sample that 20 out of the 150 toddlers have a peanut allergy.
 
 a. Describe what __sampling uncertainty/variability__ means __in context of this problem__.
 
-b. What is the __shape__ of the sampling distribution of the sample proportion for this problem? You need to justify your response with an appropriate calculation or explanation.
+b. What is the __shape__ of the sampling distribution of the sample proportion for this problem? In other words, what is the shape of the 4000 sample proportions? You need to justify your response with an appropriate calculation or explanation.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part b)
@@ -372,7 +372,7 @@ a. Click the "Sampling Distribution" tab and write down the standard error, the 
 - your answer should be approximately 0.0283
 :::
 
-b. Calculate the standard error "by hand" using the formula and verify that it is approximately equal to the standard deviation in the app.
+b. Calculate the standard error "by hand" using the formula and verify that it is approximately equal to the standard deviation of the 4000 sample proportions in the app.
 
 c. Click on the "Confidence Intervals" tab and drag the "Add and Subtract" slider until about 95% of the intervals cover the true proportion, 0.12. Write down the number on the slider.
 
