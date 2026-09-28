@@ -286,9 +286,11 @@ b. Describe what the __sampling distribution of the sample proportion__ is in co
 
 c. Use the sampling distribution app from Handout 4c (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution. These values correspond to the mean of a large number (4000 in the app) of sample proportions and the standard deviation of a large number (4000 in the app) of sample proportions.
 
-d. Provide a calculation for the standard deviation of the sampling distribution and verify that your calculation is approximately the same as the standard deviation of the 4000 sample proportions from the appfrom the App.
+d. What is the "true center" of the sampling distribution? That is, if we took a much larger number of samples than the 4000 in the app, what would the center of the sampling distribution be? Write this value in proper notation. Is it close to the approximation that you got from the app?
 
-e. Will the sampling distribution of the sample proportion be approximately normally distributed? In other words, will the 4000 sample proportions be approximately normally distributed? Provide a calculation as evidence for your answer.
+e. Provide a calculation for the standard deviation of the sampling distribution and verify that your calculation is approximately the same as the standard deviation of the 4000 sample proportions from the App.
+
+f. Will the sampling distribution of the sample proportion be approximately normally distributed? In other words, will the 4000 sample proportions be approximately normally distributed? Provide a calculation as evidence for your answer.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part e)
@@ -296,9 +298,9 @@ e. Will the sampling distribution of the sample proportion be approximately norm
 - hint: according to our success-failure condition, the sampling distribution will be normally distributed if both $n \cdot p$ and $n \cdot (1 - p)$ are larger than 10.
 :::
 
-f. Now suppose that your friend takes a sample of 50 trees in St. Lawrence county. Will the spread of your friend's sampling distribution of the sample proportion be greater than or less than the spread of your sampling distribution of the sample proportion with a sample size of 20 trees? Give a brief reason.
+g. Now suppose that your friend takes a sample of 50 trees in St. Lawrence county. Will the spread of your friend's sampling distribution of the sample proportion be greater than, less than, or the same as the spread of your sampling distribution of the sample proportion with a sample size of 20 trees? Will the center of your friend's sampling distribution be greater than, less than, or the same as the center of your sampling distribution? Give a brief reason.
 
-g. When your friend takes their sample of 50 trees, they find a sample proportion of trees that are taller than 40 feet of 0.3. Calculate a 95% confidence interval for the proportion of trees taller than 40 feet using your friend's sample.
+h. When your friend takes their sample of 50 trees, they find a sample proportion of trees that are taller than 40 feet of 0.3. Calculate a 95% confidence interval for the proportion of trees taller than 40 feet using your friend's sample.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part g)
@@ -306,9 +308,9 @@ g. When your friend takes their sample of 50 trees, they find a sample proportio
 - your 95% confidence interval should look like: (0.1742, 0.4258)
 :::
 
-h. Interpret your interval in context of the problem.
+i. Interpret your interval in context of the problem.
 
-i. Why does it not make sense to calculate and interpret a confidence interval for this example?
+j. Why does it not make sense to calculate and interpret a confidence interval for this example?
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part i)
@@ -364,17 +366,13 @@ __Exercise 11__. A common topic in the U.S. is the aging of the "baby boomer" ge
 
 Using the app that we used for Handout 4d (<https://stlawu.shinyapps.io/samp_dist_conf_int/>), drag the slider for the true proportion to 0.12 and the sample size to 130. Then, answer the following questions.
 
-a. Click the "Sampling Distribution" tab and write down the standard error, the standard deviation of the sampling distribution.
+a. Click the "Sampling Distribution" tab and write down mean of the 4000 sample proportions and the standard error, the standard deviation of the sampling distribution.
 
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part a)
+b. What is the "true center" of the sampling distribution? That is, if we took a much larger number of samples than the 4000 in the app, what would the center of the sampling distribution be?
 
-- your answer should be approximately 0.0283
-:::
+c. Calculate the standard error "by hand" using the formula and verify that it is approximately equal to the standard deviation of the 4000 sample proportions in the app.
 
-b. Calculate the standard error "by hand" using the formula and verify that it is approximately equal to the standard deviation of the 4000 sample proportions in the app.
-
-c. Click on the "Confidence Intervals" tab and drag the "Add and Subtract" slider until about 95% of the intervals cover the true proportion, 0.12. Write down the number on the slider.
+d. Click on the "Confidence Intervals" tab and drag the "Add and Subtract" slider until about 95% of the intervals cover the true proportion, 0.12. Write down the number on the slider.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part c)
@@ -382,7 +380,7 @@ c. Click on the "Confidence Intervals" tab and drag the "Add and Subtract" slide
 - your answer should be approximately 0.056.
 :::
 
-d. By hand, calculate the __Margin of Error__ for a 95% confidence for this example and verify that your calculation matches (approximately) the number on the slider in the app.
+e. By hand, calculate the __Margin of Error__ for a 95% confidence for this example using the formula from class and verify that your calculation matches (approximately) the number on the slider in the app.
 
 <br>
 
