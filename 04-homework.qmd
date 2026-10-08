@@ -284,7 +284,7 @@ b. Describe what the __sampling distribution of the sample proportion__ is in co
 - hint: the __sampling distribution of the sample proportion__ would result from repeatedly sampling 20 trees in St. Lawrence County millions of times.
 :::
 
-c. Use the sampling distribution app from Handout 4c (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution. These values correspond to the mean of a large number (4000 in the app) of sample proportions and the standard deviation of a large number (4000 in the app) of sample proportions.
+c. Use the sampling distribution app from Handout 4e (<https://stlawu.shinyapps.io/samp_dist_conf_int/>) to build the sampling distribution of the sample proportion for a sample size of 20. Write down the mean and standard deviation (standard error) of the sampling distribution. These values correspond to the mean of a large number (4000 in the app) of sample proportions and the standard deviation of a large number (4000 in the app) of sample proportions.
 
 d. What is the "true center" of the sampling distribution? That is, if we took a much larger number of samples than the 4000 in the app, what would the center of the sampling distribution be? Write this value in proper notation. Is it close to the approximation that you got from the app?
 
@@ -364,7 +364,7 @@ f. Mark each of the following statements as True or False. Give a short one phra
 
 __Exercise 11__. A common topic in the U.S. is the aging of the "baby boomer" generation. Let's look at the sampling distribution for a sample size of about 130 of the proportion of people in the U.S. who are 65 or older. The true proportion of people 65 or older at the time of the 2010 U.S. census is __0.12__.
 
-Using the app that we used for Handout 4d (<https://stlawu.shinyapps.io/samp_dist_conf_int/>), drag the slider for the true proportion to 0.12 and the sample size to 130. Then, answer the following questions.
+Using the app that we used for Handout 4f (<https://stlawu.shinyapps.io/samp_dist_conf_int/>), drag the slider for the true proportion to 0.12 and the sample size to 130. Then, answer the following questions.
 
 a. Click the "Sampling Distribution" tab and write down mean of the 4000 sample proportions and the standard error, the standard deviation of the sampling distribution.
 
