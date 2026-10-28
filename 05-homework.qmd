@@ -187,14 +187,6 @@ Using the data from the survey, conduct a statistical hypothesis test to determi
 
 a. __Prepare__: Write the null hypothesis in statistical notation and the alternative hypothesis in words. Define _one_ of the parameters of interest.
 
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part a)
-
-- $H_0: p_b = p_c = p_s = \frac{1}{3}$
-
-- $H_a:$ at least one of the proportions is different than $\frac{1}{3}$.
-:::
-
 b. __Check__: Assume the independence assumption holds. Check the other condition we discussed for this test.
 
 c. __Calculate__. Find the __expected__ counts for each Pokemon choice if the null hypothesis is true.
@@ -207,13 +199,7 @@ c. __Calculate__. Find the __expected__ counts for each Pokemon choice if the nu
 
 d. What are the degrees of freedom for the chi-square statistic?
 
-e. Calculate the chi-squared statistic.
-
-::: {.callout-tip collapse="true"}
-## Checkpoint (Check after completing part e)
-
-- $X^2 = 7.385$
-:::
+e. Find the contribution of Bulbasaur to the overall-chi-squared statistic. Then, calculate the chi-squared statistic.
 
 f. Using StatKey, draw the distribution of $X^2$ if the null hypothesis is true. Mark your observed chi-square statistic on your graph and shade the region that represents the p-value.
 
@@ -270,7 +256,7 @@ b. __Check__. Assume the independence assumption holds. Check the other conditio
 
 Proceed with the steps of the test even if the assumption in __Check__ was not satisfied.
 
-c. __Calculate__. Find the $X^2$ statistic for this example.
+c. __Calculate__. Calculate the contribution of left-handed people who play a sport to the overall chi-squared statistic. Then, calculate the $X^2$ statistic for this example.
 
 d. Find the degrees of freedom.
 
@@ -301,7 +287,7 @@ c. __Check__. Assume that the independence assumption holds. Check the other con
 
 Complete the rest of the test regardless of whether or not the assumption in __Check__ holds.
 
-d. __Calculate__. Create a table of all 8 Expected Counts, if there is no association between the two variables.
+d. __Calculate__. Create a table of all 8 Expected Counts, if there is no association between the two variables. Then, find the contribution of matches player D wins with items to the overall chi-squared statistic.
 
 ::: {.callout-tip collapse="true"}
 ## Checkpoint (Check after completing part d)
